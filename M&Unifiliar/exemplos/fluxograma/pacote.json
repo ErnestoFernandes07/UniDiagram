@@ -1,0 +1,146 @@
+{
+  "api": 1,
+  "id": "exemplo.fluxograma",
+  "versao": 1,
+  "nome": "Fluxograma",
+  "unidade": 10,
+  "categorias": {
+    "Fluxo": [
+      "Processo",
+      "Decisão"
+    ]
+  },
+  "conexoes": {
+    "categorias": {
+      "Fluxo": "#34445a",
+      "Sim": "#15805b",
+      "Não": "#a03b52"
+    },
+    "padrao": "Fluxo",
+    "cores_compartilhadas": false,
+    "nomes_ocultos": [
+      "Fluxo"
+    ],
+    "rotulo": "Conexão"
+  },
+  "componentes": {
+    "Processo": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          40,
+          0
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          -40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -30,
+            -20,
+            30,
+            20
+          ],
+          "outline": "#203b46",
+          "fill": "white",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0,
+            -30,
+            0,
+            -20
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0,
+            20,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            30,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -30,
+            0,
+            -40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ]
+    },
+    "Decisão": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          40,
+          0
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          -40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "polygon",
+          "pontos": [
+            0,
+            -30,
+            40,
+            0,
+            0,
+            30,
+            -40,
+            0
+          ],
+          "outline": "#203b46",
+          "fill": "white",
+          "width": 1.8
+        }
+      ]
+    }
+  }
+}

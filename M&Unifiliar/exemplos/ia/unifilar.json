@@ -1,0 +1,53 @@
+{
+  "versao": 4,
+  "ativa": "Folha 1",
+  "bibliotecas": [
+    {
+      "id": "eletrica.unifilar",
+      "versao": 1
+    }
+  ],
+  "folhas": {
+    "Folha 1": {
+      "componentes": {
+        "q1": {
+          "pacote": {
+            "id": "eletrica.unifilar",
+            "versao": 1
+          },
+          "tipo": "Disjuntor DIN 1P",
+          "nome": "Q1",
+          "x": 320,
+          "y": 210
+        },
+        "luz": {
+          "pacote": {
+            "id": "eletrica.unifilar",
+            "versao": 1
+          },
+          "tipo": "Luminária LED",
+          "nome": "Iluminação",
+          "x": 320,
+          "y": 380
+        }
+      },
+      "ligacoes": {
+        "c1": {
+          "pacote": {
+            "id": "eletrica.unifilar",
+            "versao": 1
+          },
+          "a": [
+            "q1",
+            1
+          ],
+          "b": [
+            "luz",
+            0
+          ],
+          "condutor": "Circuito"
+        }
+      }
+    }
+  }
+}

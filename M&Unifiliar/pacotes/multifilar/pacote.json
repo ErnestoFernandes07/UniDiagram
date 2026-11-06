@@ -1,0 +1,4064 @@
+{
+  "api": 1,
+  "id": "eletrica.multifilar",
+  "versao": 1,
+  "nome": "Multifilar",
+  "categorias": {
+    "Proteção": [
+      "Disjuntor DIN 1P",
+      "Disjuntor DIN 2P",
+      "Disjuntor DIN 3P",
+      "Disjuntor NEMA 1P",
+      "Disjuntor NEMA 2P",
+      "Disjuntor NEMA 3P",
+      "DR 2P",
+      "DR 4P",
+      "DPS"
+    ],
+    "Distribuição": [
+      "Quadro de distribuição",
+      "Terra"
+    ],
+    "Comando e cargas": [
+      "Interruptor",
+      "Tomada 2P+T",
+      "Luminária LED",
+      "Luminária LED com PE",
+      "Carga resistiva",
+      "Carga resistiva com PE",
+      "Motor monofásico",
+      "Motor · alimentação bifásica",
+      "Motor trifásico"
+    ]
+  },
+  "componentes": {
+    "Barramento": {
+      "terminais": [
+        [
+          -30,
+          -30
+        ],
+        [
+          -10,
+          -30
+        ],
+        [
+          0,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          30,
+          -30
+        ],
+        [
+          -30,
+          30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          10,
+          30
+        ],
+        [
+          30,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -24,
+            -28.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            -24,
+            28.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            24,
+            -28.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            24,
+            28.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -34.0,
+            0,
+            34.0,
+            0
+          ],
+          "width": 4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -24,
+            -28.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -14.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            14.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            -24,
+            28.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            24,
+            -28.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -14.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            14.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            24,
+            28.0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -24,
+            -30,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            -24,
+            30,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            24,
+            -30,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            24,
+            30,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Carga resistiva": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -14
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -14
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -13,
+            -14,
+            13,
+            14
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Carga resistiva com PE": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -14
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -14
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -13,
+            -14,
+            13,
+            14
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "DPS": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          0,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -9,
+            -14,
+            9,
+            14
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            5,
+            -10,
+            -3,
+            1,
+            2,
+            1,
+            -5,
+            10
+          ],
+          "width": 1.5,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "DR 2P": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            12,
+            -14.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -8.7,
+            -13.7,
+            -5.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -1,
+            -6.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            12,
+            0.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            5.3,
+            -13.7,
+            8.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -1,
+            8.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            3,
+            -5.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -2.0,
+            3,
+            1.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            25,
+            0
+          ],
+          "fill": "#203b46",
+          "text": "ΔI",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "DR 4P": {
+      "terminais": [
+        [
+          -20,
+          -30
+        ],
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          20,
+          -30
+        ],
+        [
+          -20,
+          30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          10,
+          30
+        ],
+        [
+          20,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            -24,
+            -21.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            21.0,
+            -24,
+            21.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            24,
+            -21.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            21.0,
+            24,
+            21.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            12,
+            -28.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -22.7,
+            -13.7,
+            -19.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -1,
+            -20.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            12,
+            -14.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -8.7,
+            -13.7,
+            -5.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -1,
+            -6.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            12,
+            0.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            5.3,
+            -13.7,
+            8.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -1,
+            8.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            21.0,
+            12,
+            14.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            19.3,
+            -13.7,
+            22.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -1,
+            22.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -24.0,
+            3,
+            -19.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -16.0,
+            3,
+            -13.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            3,
+            -5.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -2.0,
+            3,
+            1.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            4.0,
+            3,
+            9.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            12.0,
+            3,
+            15.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            36.0,
+            0
+          ],
+          "fill": "#203b46",
+          "text": "ΔI",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            -24,
+            -20,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            21.0,
+            -24,
+            20,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            24,
+            -20,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            21.0,
+            24,
+            20,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor DIN 1P": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          0,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            12,
+            -7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -1.7,
+            -13.7,
+            1.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -1,
+            1.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor DIN 2P": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            12,
+            -14.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -8.7,
+            -13.7,
+            -5.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -1,
+            -6.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            12,
+            0.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            5.3,
+            -13.7,
+            8.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -1,
+            8.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            3,
+            -5.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -2.0,
+            3,
+            1.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor DIN 3P": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          0,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            12,
+            -21.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -15.7,
+            -13.7,
+            -12.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            -1,
+            -13.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            12,
+            -7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -1.7,
+            -13.7,
+            1.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -1,
+            1.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            12,
+            7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            12.3,
+            -13.7,
+            15.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -1,
+            15.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -17.0,
+            3,
+            -12.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -9.0,
+            3,
+            -6.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -3.0,
+            3,
+            2.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            5.0,
+            3,
+            8.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor NEMA 1P": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          0,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            12,
+            -7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -1.7,
+            -13.7,
+            1.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -1,
+            1.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor NEMA 2P": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            7.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            7.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            12,
+            -14.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -8.7,
+            -13.7,
+            -5.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -1,
+            -6.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            12,
+            0.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            5.3,
+            -13.7,
+            8.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -1,
+            8.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            3,
+            -5.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -2.0,
+            3,
+            1.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Disjuntor NEMA 3P": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          0,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          10,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            12,
+            -21.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -15.7,
+            -13.7,
+            -12.3,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -21.0,
+            -1,
+            -13.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            12,
+            -7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -1.7,
+            -13.7,
+            1.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -7.0,
+            -1,
+            1.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            12,
+            7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            12.3,
+            -13.7,
+            15.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            7.0,
+            -1,
+            15.0,
+            -4
+          ],
+          "width": 1.4,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -17.0,
+            3,
+            -12.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -9.0,
+            3,
+            -6.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -3.0,
+            3,
+            2.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            5.0,
+            3,
+            8.0,
+            3
+          ],
+          "width": 1,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Interruptor": {
+      "terminais": [
+        [
+          0,
+          -30
+        ],
+        [
+          0,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            12,
+            -7.0,
+            -7
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -1.7,
+            -13.7,
+            1.7,
+            -10.3
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Luminária LED": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -15,
+            -15,
+            15,
+            15
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10,
+            -10,
+            10,
+            10
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10,
+            10,
+            10,
+            -10
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Luminária LED com PE": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -15,
+            -15,
+            15,
+            15
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10,
+            -10,
+            10,
+            10
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -10,
+            10,
+            10,
+            -10
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Motor monofásico": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -19.595917942265423
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -19.595917942265423
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -22,
+            -22,
+            22,
+            22
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            -4
+          ],
+          "fill": "#203b46",
+          "text": "M",
+          "font": [
+            "Segoe UI",
+            -14,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            9
+          ],
+          "fill": "#203b46",
+          "text": "1~",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Motor trifásico": {
+      "terminais": [
+        [
+          -20,
+          -30
+        ],
+        [
+          0,
+          -30
+        ],
+        [
+          20,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -20.0,
+            -30,
+            -20.0,
+            -9.16515138991168
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -13.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "U",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -30,
+            0.0,
+            -22.0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            7.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "V",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            20.0,
+            -30,
+            20.0,
+            -9.16515138991168
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            27.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "W",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -22,
+            -22,
+            22,
+            22
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            -4
+          ],
+          "fill": "#203b46",
+          "text": "M",
+          "font": [
+            "Segoe UI",
+            -14,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            9
+          ],
+          "fill": "#203b46",
+          "text": "3~",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Motor · alimentação bifásica": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -19.595917942265423
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "L1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -19.595917942265423
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "L2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -22,
+            -22,
+            22,
+            22
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            -4
+          ],
+          "fill": "#203b46",
+          "text": "M",
+          "font": [
+            "Segoe UI",
+            -14,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            9
+          ],
+          "fill": "#203b46",
+          "text": "1~",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Quadro de distribuição": {
+      "terminais": [
+        [
+          -30,
+          -30
+        ],
+        [
+          -10,
+          -30
+        ],
+        [
+          0,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          30,
+          -30
+        ],
+        [
+          -30,
+          30
+        ],
+        [
+          -10,
+          30
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          10,
+          30
+        ],
+        [
+          30,
+          30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -24,
+            -28.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            14.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            -24,
+            28.0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            24,
+            -28.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            14.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            24,
+            28.0,
+            12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -34.0,
+            -14,
+            34.0,
+            14
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "rectangle",
+          "pontos": [
+            -31.0,
+            -11,
+            31.0,
+            11
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            0,
+            0
+          ],
+          "fill": "#203b46",
+          "text": "QD",
+          "font": [
+            "Segoe UI",
+            -11,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -23.0,
+            -31
+          ],
+          "fill": "#203b46",
+          "text": "L1",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -9.0,
+            -31
+          ],
+          "fill": "#203b46",
+          "text": "L2",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            5.0,
+            -31
+          ],
+          "fill": "#203b46",
+          "text": "L3",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            19.0,
+            -31
+          ],
+          "fill": "#203b46",
+          "text": "N",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            33.0,
+            -31
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -23.0,
+            31
+          ],
+          "fill": "#203b46",
+          "text": "L1",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -9.0,
+            31
+          ],
+          "fill": "#203b46",
+          "text": "L2",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            5.0,
+            31
+          ],
+          "fill": "#203b46",
+          "text": "L3",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            19.0,
+            31
+          ],
+          "fill": "#203b46",
+          "text": "N",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            33.0,
+            31
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -7,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            -24,
+            -30,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            -24,
+            -10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            -24,
+            10,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            -24,
+            30,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -28.0,
+            24,
+            -30,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -14.0,
+            24,
+            -10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0.0,
+            24,
+            0,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            14.0,
+            24,
+            10,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            28.0,
+            24,
+            30,
+            30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 21
+    },
+    "Terra": {
+      "terminais": [
+        [
+          0,
+          -30
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            0,
+            -24,
+            0,
+            -12
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0,
+            -12,
+            0,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -13,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -9,
+            5,
+            9,
+            5
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            -5,
+            10,
+            5,
+            10
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            0,
+            -24,
+            0,
+            -30
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    },
+    "Tomada 2P+T": {
+      "terminais": [
+        [
+          -10,
+          -30
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "apoio": 0,
+      "simbolo": [
+        {
+          "tipo": "line",
+          "pontos": [
+            -10.0,
+            -30,
+            -10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            -3.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P1",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            10.0,
+            -30,
+            10.0,
+            -11.180339887498949
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            17.0,
+            -39
+          ],
+          "fill": "#203b46",
+          "text": "P2",
+          "font": [
+            "Segoe UI",
+            -9,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            13,
+            0
+          ],
+          "width": 1.8,
+          "fill": "#203b46"
+        },
+        {
+          "tipo": "text",
+          "pontos": [
+            34,
+            10
+          ],
+          "fill": "#203b46",
+          "text": "PE",
+          "font": [
+            "Segoe UI",
+            -8,
+            "bold"
+          ]
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -18,
+            -18,
+            18,
+            18
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -10,
+            2,
+            -6,
+            6
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            6,
+            2,
+            10,
+            6
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "oval",
+          "pontos": [
+            -2,
+            -8,
+            2,
+            -4
+          ],
+          "width": 1.8,
+          "fill": "white",
+          "outline": "#203b46"
+        },
+        {
+          "tipo": "line",
+          "pontos": [
+            34,
+            0,
+            40,
+            0
+          ],
+          "fill": "#203b46",
+          "width": 1.8
+        }
+      ],
+      "margem_nome": 13
+    }
+  },
+  "conexoes": {
+    "categorias": {
+      "Circuito": "#34445a",
+      "L1": "#643c32",
+      "L2": "#24272b",
+      "L3": "#a03b52",
+      "N": "#68a9d3",
+      "PE": "#15805b",
+      "Retorno": "#b45d17"
+    },
+    "padrao": "L1",
+    "cores_compartilhadas": true,
+    "nomes_ocultos": [
+      "Circuito"
+    ],
+    "rotulo": "Condutor"
+  },
+  "unidade": 10,
+  "ia": {
+    "descricao": "Biblioteca gráfica elétrica multifilar.",
+    "restricoes": [
+      "A biblioteca não dimensiona instalações nem comprova conformidade normativa.",
+      "Não converta objetos trocando apenas o pacote; os índices de portas têm significados diferentes."
+    ],
+    "exemplos": [
+      "Use os índices de terminais e as categorias de conexão declarados neste manifesto."
+    ]
+  }
+}

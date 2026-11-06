@@ -1,0 +1,6 @@
+- Adicionar camadas layers e opções de opacidade
+- Adicionar ara criar arquivo para impressão em diefrentes tamanos de folha com cabeçalho
+- Adicionar menu de instrução, um pdf bem feito. 
+- Adicionar possibilidade de versões 
+- Adicionar salvamento automático a cada x minutos
+- Adicionar repo no github para pode fazer forsk e tudo mais 

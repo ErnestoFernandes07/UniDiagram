@@ -1,0 +1,67 @@
+{
+  "versao": 4,
+  "ativa": "Folha 1",
+  "bibliotecas": [],
+  "folhas": {
+    "Folha 1": {
+      "componentes": {},
+      "ligacoes": {
+        "fluxo": {
+          "pacote": {
+            "id": "nucleo.generico",
+            "versao": 1
+          },
+          "a": [
+            "entrada",
+            0
+          ],
+          "b": [
+            "saida",
+            0
+          ],
+          "condutor": "Conexão",
+          "espessura": 3
+        }
+      },
+      "nos": {
+        "entrada": [
+          180,
+          240
+        ],
+        "saida": [
+          420,
+          240
+        ]
+      },
+      "formas": {
+        "caixa": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              120,
+              200
+            ],
+            [
+              180,
+              280
+            ]
+          ],
+          "cor": "#283b46"
+        },
+        "texto": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              300,
+              190
+            ]
+          ],
+          "texto": "Fluxo de trabalho",
+          "cor": "#283b46",
+          "fonte": "Segoe UI",
+          "tamanho": 18
+        }
+      }
+    }
+  }
+}
