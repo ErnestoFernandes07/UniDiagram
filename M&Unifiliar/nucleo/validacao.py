@@ -147,9 +147,13 @@ def validar_v4(d):
                 usados.add(id_)
         for id_,v in f["componentes"].items():
             q = p+".componentes."+id_
-            campos(v,q,("tipo","nome","x","y"),("pacote","rotacao","espelho","mostrar_nome"))
+            campos(v,q,("tipo","nome","x","y"),("pacote","rotacao","espelho","mostrar_nome","escala","posicao_nome","tamanho_nome"))
             lib = pacote_obj(v,f,q)
             exigir(isinstance(v["tipo"],str) and v["tipo"] in lib.componentes,q+".tipo",f"componente inexistente na biblioteca {lib.id}.")
+            numero(v.get("tamanho_nome",12),q+".tamanho_nome",8,96,True)
+            numero(v.get("escala",1),q+".escala",1,4,True)
+            if "posicao_nome" in v:
+                ponto(v["posicao_nome"],q+".posicao_nome")
             texto(v["nome"],q+".nome")
             ponto([v["x"],v["y"]],q+".posição")
             exigir(type(v.get("rotacao",0))==int and v.get("rotacao",0) in (0,90,180,270),q+".rotacao","use 0, 90, 180 ou 270.")
@@ -181,7 +185,7 @@ def validar_v4(d):
                 numero(v.get("angulo",0),q+".angulo",0,359,True)
             else:
                 exigir(not set(v)&{"texto","fonte","tamanho","angulo"},q,"propriedades de texto em forma geométrica.")
-                pontos(v["pontos"],q+".pontos",2,LIMITES["pontos"] if v["tipo"]=="Lápis" else 2)
+                pontos(v["pontos"],q+".pontos",2,LIMITES["pontos"] if v["tipo"] in ("Lápis","Seta curva") else 2)
             objeto(v.get("ancoras",{}),q+".ancoras")
             for k,r in v.get("ancoras",{}).items():
                 exigir(v["tipo"]!="Texto" and k in ("0","1"),q+".ancoras","âncora inválida para esta forma.")

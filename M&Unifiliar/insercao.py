@@ -11,7 +11,7 @@ class Insercao:
         x,y = pos
         if snap:
             x,y = (round(v/UNIDADE)*UNIDADE for v in pos)
-        item = dict(tipo=self.modo,nome=self.modo,x=0,y=0,pacote=referencia(self.pacote),
+        item = dict(tipo=self.modo,nome=self.modo,tamanho_nome=self.tamanho_nome_padrao,x=0,y=0,pacote=referencia(self.pacote),
                     rotacao=self.rotacao_insercao,espelho=self.espelho_insercao)
         definicao = self.pacote.componentes[self.modo]
         porta = definicao["terminais"][definicao.get("apoio",0)]

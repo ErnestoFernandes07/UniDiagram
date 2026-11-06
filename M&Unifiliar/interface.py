@@ -37,6 +37,9 @@ def icone(c,nome,x,y,cor):
         linha(-9,6,8,-6)
         if nome=="Seta":
             linha(1,-6,8,-6,7,1)
+    elif nome=="Seta curva":
+        c.create_line(x-10,y+8,x-10,y-5,x+9,y-5,fill=cor,width=2,smooth=True)
+        c.create_line(x+4,y-10,x+9,y-5,x+4,y,fill=cor,width=2)
     elif nome=="Ligar":
         linha(-8,7,-8,0,7,0,7,-7)
         for a,b in [(-8,7),(7,-7)]:
@@ -115,7 +118,7 @@ class Interface:
         self.c = tk.Canvas(self.area,bg=PAPEL,highlightthickness=0,confine=False)
         self.c.pack(fill="both",expand=True)
 
-        self.ferramentas = ("Selecionar","Mover","Ligar","Derivar",*FORMAS)
+        self.ferramentas = ("Selecionar","Mover",*FORMAS)
         self.paleta = tk.Canvas(self.area,width=446,height=58,bg=PAPEL,highlightthickness=0,cursor="hand2")
         self.paleta.place(relx=.5,y=12,anchor="n")
         self.paleta.bind("<Button-1>",self.clicar_ferramenta)
@@ -147,7 +150,8 @@ class Interface:
         self.painel.bind("<Unmap>",lambda e:self.prever_componente(None))
 
         self.categorias = Cartao(self.area,padding=4)
-        self.categorias.place(relx=.5,y=72,anchor="n")
+        self.categorias.place(x=14,y=12,anchor="nw")
+        self.area.bind("<Configure>",lambda e:self.limitar_bibliotecas(),add="+")
         self.pacote_catalogo = None
         self.painel_bibliotecas = Cartao(self.area,padding=12)
         cab_bib = tk.Frame(self.painel_bibliotecas.conteudo,bg="white")
@@ -191,7 +195,7 @@ class Interface:
         self.remover = botao(self.contexto.conteudo,"Excluir",self.excluir)
         self.rotulo_conexao = tk.Label(self.fios,text="Conexão",bg="white",fg=TINTA)
         self.rotulo_conexao.pack(side="left",padx=4)
-        self.escolha_condutor = Faixa(self.fios,[(v,v) for v in self.pacote.conexoes["categorias"]],self.selecionar_condutor,largura=330)
+        self.escolha_condutor = Faixa(self.fios,[(v,v) for v in self.pacote.conexoes["categorias"] if v not in self.pacote.conexoes.get("categorias_ocultas",[])],self.selecionar_condutor,largura=330)
         self.escolha_condutor.pack(side="left")
 
         moldura = tk.Canvas(self.area,bg=PAPEL,highlightthickness=0)
@@ -215,7 +219,7 @@ class Interface:
         for widget in (cab,titulo):
             widget.bind("<Button-1>",self.iniciar_arrasto_mapa)
             widget.bind("<B1-Motion>",self.arrastar_mapa)
-        self.area.bind("<Configure>",lambda e:self.limitar_mapa())
+        self.area.bind("<Configure>",lambda e:self.limitar_mapa(),add="+")
         marcar = botao(cab,"+",lambda:self.popup(marcar,menu_marcas))
         marcar.pack(side="right")
         menu_marcas = tk.Menu(root,tearoff=False)
@@ -266,7 +270,10 @@ class Interface:
         item = dict(x=88,y=62,tipo=tipo,nome=tipo)
         desenhar(c,"amostra",item,self.pacote_catalogo,False,None)
         c.scale("all",88,62,1.28,1.28)
-        self.amostra.place(x=self.painel.winfo_x()-5,y=self.painel.winfo_y(),anchor="ne")
+        x = self.painel.winfo_x()-self.amostra.winfo_reqwidth()-5
+        if x<0:
+            x = self.painel.winfo_x()+self.painel.winfo_width()+5
+        self.amostra.place(x=max(0,min(x,self.area.winfo_width()-self.amostra.winfo_reqwidth())),y=self.painel.winfo_y(),anchor="nw")
         self.amostra.levantar()
 
     def configurar_grade(self):
@@ -286,8 +293,38 @@ class Interface:
         self.passo_grade.set(self.dados["grade"].get("passo",40))
 
     def altura_barra(self):
-        quantidade = len(self.dados.get("bibliotecas",[]))+1
-        return 116+30*((quantidade+2)//3-1)
+        return 76
+
+    def iniciar_arrasto_bibliotecas(self,e):
+        self.fechar_catalogo()
+        self.painel_bibliotecas.place_forget()
+        self.origem_painel = (e.x_root-self.categorias.winfo_x(),e.y_root-self.categorias.winfo_y())
+
+    def arrastar_bibliotecas(self,e):
+        dx,dy = self.origem_painel
+        self.categorias.place(x=e.x_root-dx,y=e.y_root-dy)
+        self.categorias.update_idletasks()
+        self.limitar_bibliotecas()
+
+    def limitar_bibliotecas(self):
+        w,h = self.area.winfo_width(),self.area.winfo_height()
+        if w<=1 or h<=1:
+            return
+        x = min(max(0,self.categorias.winfo_x()),max(0,w-self.categorias.winfo_reqwidth()))
+        y = min(max(0,self.categorias.winfo_y()),max(0,h-self.categorias.winfo_reqheight()))
+        self.categorias.place(x=x,y=y)
+
+    def posicionar_catalogo(self,painel):
+        painel.place(x=0,y=0,relx=0,anchor="nw")
+        self.area.update_idletasks()
+        w,h = painel.winfo_reqwidth(),painel.winfo_reqheight()
+        x = self.categorias.winfo_x()+self.categorias.winfo_width()+8
+        if x+w>self.area.winfo_width():
+            x = self.categorias.winfo_x()-w-8
+        x = max(0,min(x,self.area.winfo_width()-w))
+        y = max(0,min(self.categorias.winfo_y(),self.area.winfo_height()-h))
+        painel.place(x=x,y=y,relx=0,anchor="nw")
+        painel.levantar()
 
     def fechar_catalogo(self):
         self.manter_catalogo()
@@ -326,7 +363,7 @@ class Interface:
                 self.arvore.insert(grupo,"end",iid=tipo,text=tipo)
         self.titulo_biblioteca.configure(text=self.pacote_catalogo.nome)
         self.arvore.yview_moveto(0)
-        self.painel.place(relx=.5,x=225,y=self.altura_barra(),anchor="ne")
+        self.posicionar_catalogo(self.painel)
         self.painel.levantar()
 
     def biblioteca(self):
@@ -334,8 +371,34 @@ class Interface:
             self.painel_bibliotecas.place_forget()
         else:
             self.fechar_catalogo()
-            self.painel_bibliotecas.place(relx=.5,y=self.altura_barra(),anchor="n")
+            self.posicionar_catalogo(self.painel_bibliotecas)
             self.painel_bibliotecas.levantar()
+
+    def ferramentas_bibliotecas(self):
+        return {t for ref in self.dados.get("bibliotecas",[])
+                for t in obter(ref["id"]).dados.get("biblioteca",{}).get("ferramentas",["Ligar","Derivar"])}
+
+    def habilitar_grupo(self,ids,habilitada):
+        self.concluir_digitacao()
+        self.lembrar()
+        refs = [r for r in self.dados.get("bibliotecas",[]) if r["id"] not in ids]
+        if habilitada:
+            refs.extend(referencia(obter(k)) for k in ids)
+        self.dados["bibliotecas"] = refs
+        self.ferramenta("Selecionar")
+        self.biblioteca_ativa = None
+        self.fechar_catalogo()
+        self.render()
+
+    def ferramenta_biblioteca(self,modo):
+        ids = [r["id"] for r in self.dados.get("bibliotecas",[])
+               if modo in obter(r["id"]).dados.get("biblioteca",{}).get("ferramentas",["Ligar","Derivar"])]
+        if ids:
+            if self.biblioteca_ativa not in ids:
+                self.biblioteca_ativa = ids[0]
+            self.fechar_catalogo()
+            self.ferramenta(modo)
+            self.c.focus_set()
 
     def habilitar_biblioteca(self,id_,habilitada):
         refs = self.dados.get("bibliotecas",[])
@@ -349,6 +412,8 @@ class Interface:
         elif self.biblioteca_ativa==id_ and self.modo in self.pacote.componentes:
             self.ferramenta("Selecionar")
             self.biblioteca_ativa = None
+        if self.modo in ("Ligar","Derivar") and self.modo not in self.ferramentas_bibliotecas():
+            self.ferramenta("Selecionar")
         self.fechar_catalogo()
         self.render()
 
@@ -410,18 +475,50 @@ class Interface:
             for widget in self.categorias.conteudo.winfo_children():
                 widget.destroy()
             self.botoes_bibliotecas.clear()
+            nomes_grupos = {obter(k).dados.get("biblioteca",{}).get("nome","Bibliotecas") for k in ids}
+            titulo = next(iter(nomes_grupos)) if len(nomes_grupos)==1 else "Bibliotecas"
+            alca = tk.Label(self.categorias.conteudo,text="⠿ "+titulo,bg="white",fg=TINTA,cursor="fleur",font=(FONTE,10,"bold"),pady=7)
+            alca.grid(row=0,column=0,sticky="ew")
+            alca.bind("<ButtonPress-1>",self.iniciar_arrasto_bibliotecas)
+            alca.bind("<B1-Motion>",self.arrastar_bibliotecas)
             for i,id_ in enumerate(ids):
                 p = obter(id_)
                 b = BotaoMenu(self.categorias.conteudo,p.nome,lambda k=id_:self.abrir_biblioteca(k),largura=142)
-                b.grid(row=i//3,column=i%3,padx=1)
+                b.grid(row=i+1,column=0,padx=1,pady=2)
                 b.bind("<Enter>",lambda e,k=id_:self.abrir_biblioteca(k),add="+")
                 b.bind("<Leave>",self.agendar_fechar_catalogo,add="+")
                 self.botoes_bibliotecas[id_] = b
             i = len(ids)
-            BotaoMenu(self.categorias.conteudo,"Bibliotecas +",self.biblioteca,largura=142).grid(row=i//3,column=i%3,padx=1)
+            for modo in ("Ligar","Derivar"):
+                if modo in self.ferramentas_bibliotecas():
+                    i += 1
+                    btn = tk.Canvas(self.categorias.conteudo,width=140,height=34,bg="white",highlightthickness=0,cursor="hand2",takefocus=True)
+                    btn.grid(row=i,column=0,padx=1,pady=2)
+                    arredondado(btn,1,1,139,33,8,"#e7f0e9")
+                    icone(btn,modo,70,17,VERDE)
+                    for evento in ("<ButtonRelease-1>","<Return>","<space>"):
+                        btn.bind(evento,lambda e,m=modo:self.ferramenta_biblioteca(m))
+                    def dica_fio(e,m=modo):
+                        self.dica.configure(text="Fio — ligar (L)" if m=="Ligar" else "Derivar fio (D)")
+                        self.dica.place(x=e.widget.winfo_rootx()-self.area.winfo_rootx()+e.widget.winfo_width()+8,
+                                        y=e.widget.winfo_rooty()-self.area.winfo_rooty())
+                        self.dica.lift()
+                    btn.bind("<Enter>",dica_fio)
+                    btn.bind("<Leave>",lambda e:self.dica.place_forget())
+            BotaoMenu(self.categorias.conteudo,"Bibliotecas +",self.biblioteca,largura=142).grid(row=i+1,column=0,padx=1,pady=2)
             for widget in self.lista_bibliotecas.winfo_children():
                 widget.destroy()
             self.checks_bibliotecas.clear()
+            grupos = {}
+            for p in REGISTRO.values():
+                grupo = p.dados.get("biblioteca")
+                if grupo:
+                    grupos.setdefault(grupo["id"],(grupo["nome"],[]))[1].append(p.id)
+            for nome,membros in grupos.values():
+                var = tk.BooleanVar(value=all(k in ids for k in membros))
+                tk.Checkbutton(self.lista_bibliotecas,text=nome,variable=var,
+                    command=lambda ks=tuple(membros),v=var:self.habilitar_grupo(ks,v.get()),
+                    bg="white",activebackground="white",fg=TINTA,anchor="w",font=(FONTE,10,"bold"),pady=8).pack(fill="x")
             for p in REGISTRO.values():
                 var = tk.BooleanVar(value=p.id in ids)
                 check = tk.Checkbutton(self.lista_bibliotecas,text=p.nome,variable=var,
@@ -431,9 +528,9 @@ class Interface:
                 self.checks_bibliotecas[p.id] = (var,check)
         for id_,(var,_) in self.checks_bibliotecas.items():
             var.set(id_ in ids)
-        self.escolha_condutor.opcoes = [(v,v) for v in self.pacote.conexoes["categorias"]]
+        self.escolha_condutor.opcoes = [(v,v) for v in self.pacote.conexoes["categorias"] if v not in self.pacote.conexoes.get("categorias_ocultas",[])]
         self.rotulo_conexao.configure(text=self.pacote.conexoes.get("rotulo","Conexão"))
-        if self.condutor.get() not in self.pacote.conexoes["categorias"]:
+        if self.condutor.get() not in dict(self.escolha_condutor.opcoes):
             self.condutor.set(self.pacote.conexoes["padrao"])
         self.escolha_condutor.set(self.condutor.get())
 
@@ -480,7 +577,7 @@ class Interface:
         janela = tk.Toplevel(self.root)
         janela.title("Atalhos"); janela.configure(bg="white")
         for linha,(teclas,acao) in enumerate([
-            ("V  /  H","Selecionar / mover a tela"),("L  /  D","Ligar / derivar"),("R  /  E","Girar / espelhar"),
+            ("V  /  H","Selecionar / mover a tela"),("L  /  D","Fio: ligar / derivar (biblioteca habilitada)"),("Ctrl + clique em linha","Iniciar seta ramificada"),("Seta curva: Shift + clique","Fixar dobra; clique sem Shift conclui"),("R  /  E","Girar / espelhar"),
             ("G","Alternar guias"),("Shift ao inserir","Encaixar o terminal na malha de 10 unidades"),("Shift + clique","Fixar uma dobra"),("Esc  /  Delete","Cancelar / excluir"),
             ("Arrastar no fundo","Selecionar componentes por área"),("Shift / Ctrl + clique","Adicionar / alternar componente"),
             ("Botão direito + arraste","Mover a tela"),

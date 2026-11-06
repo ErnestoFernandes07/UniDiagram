@@ -59,3 +59,15 @@ Abrir arquivo e importar texto usam a mesma validação estrutural. Mensagens in
 Limites atuais: 10 MiB por JSON, 64 folhas, 20.000 objetos totais, 2.000 pontos por caminho, coordenadas finitas entre -10.000.000 e 10.000.000 e até 10.000 caracteres por texto. IDs têm até 128 caracteres, usando letras, números, `_`, `.` ou `-`. Nomes de componentes têm até 256 caracteres. Espessura vai de 0,5 a 32; opacidade é um inteiro de 0 a 100; tamanho do texto é inteiro de 1 a 512; ângulo de texto é inteiro de 0 a 359. Fontes e cores editáveis são as listas de `formas.py`, também incluídas no contexto para IA.
 
 Esses limites protegem o carregamento e não mudam a versão 4. Um documento estruturalmente válido ainda pode ser grande e renderizar lentamente. Não há validação de engenharia nem execução de código contido no documento.
+
+## Escala e identificação dos componentes
+
+Campos opcionais compatíveis com v4: `escala` inteiro de 1 a 4 (padrão 1); `tamanho_nome` inteiro de 8 a 96 (padrão 12); `posicao_nome` como [dx,dy] em unidades de mundo relativas ao centro. O deslocamento da etiqueta não é rotacionado ou escalado. A transformação das portas aplica escala, espelhamento, rotação e translação. A interface altera a escala preservando o terminal de apoio. Escalas inteiras preservam a malha dos terminais já alinhados; componentes colocados livremente não são realinhados à força.
+
+## Seta curva
+
+Forma genérica `tipo: "Seta curva"`, com `pontos` contendo de 2 a 2000 pares de coordenadas, `cor` e os estilos opcionais comuns das formas. Os pontos descrevem a polilinha; o renderer arredonda os joelhos e desenha a ponta de seta. Não possui referências elétricas. Ramificações por Ctrl+clique são formas separadas. Documento permanece v4; versões anteriores do aplicativo que desconhecem esse tipo não conseguem abrir projetos que o utilizam. A ativação conjunta Diagrama elétrico salva os dois pacotes na lista `bibliotecas` já existente, sem campos novos no documento.
+
+### Categorias de conexões legadas
+
+A API 1 aceita `conexoes.categorias_ocultas`, uma lista opcional de categorias existentes que não são oferecidas para novas escolhas. O padrão não pode estar oculto. Leitores continuam aceitando objetos antigos dessas categorias. Nos dois pacotes elétricos, Circuito é legado; para novas conexões use L1/L2/L3/N/PE/Retorno conforme o desenho. Novos fios mostram o nome; a opção individual `mostrar_nome:false` continua válida. As duas bibliotecas agora compartilham cores por categoria, cada uma em seu escopo na folha. No unifilar, um traço pode representar um conjunto de condutores: um rótulo L1 não descreve sozinho sua composição completa. O editor não verifica a adequação elétrica das ligações.

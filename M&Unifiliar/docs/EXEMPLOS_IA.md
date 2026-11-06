@@ -5,7 +5,7 @@ Os arquivos em `exemplos/ia/` usam o mesmo JSON v4 aberto pelo editor. Os quatro
 | Arquivo | Conteúdo |
 | --- | --- |
 | [generico.json](../exemplos/ia/generico.json) | Retângulo, texto, dois nós e ligação genérica |
-| [unifilar.json](../exemplos/ia/unifilar.json) | Disjuntor DIN 1P e luminária LED ligados pela categoria Circuito |
+| [unifilar.json](../exemplos/ia/unifilar.json) | Disjuntor DIN 1P e luminária LED ligados pela categoria L1 |
 | [multifilar.json](../exemplos/ia/multifilar.json) | Disjuntor DIN 2P e LED com ligações L1 e L2 em portas individuais |
 | [modificado.json](../exemplos/ia/modificado.json) | Documento genérico preservado, com texto, tamanho e cor alterados |
 | [rejeitado-terminal.json](../exemplos/ia/rejeitado-terminal.json) | Referência incorreta ao terminal 9 de uma luminária com uma única porta |
@@ -46,3 +46,7 @@ python validar_projeto.py exemplos/ia/rejeitado-terminal.json
 ```
 
 O importador aceita JSON puro ou uma resposta com um único bloco Markdown JSON. Ele não procura automaticamente arquivos citados na resposta, não instala bibliotecas e não executa conteúdo.
+
+## Reprodução de referência visual
+
+[Quadro geral multifilar](../exemplos/quadro-geral/README.md): projeto editável v4, PNG e gerador reproduzível. Inclui 22 disjuntores, derivações por nós, caixas de identificação e limites explícitos da transcrição. Consulte o README do exemplo antes de usá-lo como contexto para IA; não trate o desenho como instalação validada.

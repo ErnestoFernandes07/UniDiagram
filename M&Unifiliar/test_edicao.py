@@ -23,6 +23,7 @@ class EdicaoTest(unittest.TestCase):
         self.assertEqual(self.editor.dados["bibliotecas"],[])
         self.assertEqual(self.editor.tabs,{})
         self.editor.substituir(eletrico(),None)
+        self.editor.categorias.place(x=980,y=350)
         self.root.update()
 
     def tearDown(self):
@@ -43,6 +44,81 @@ class EdicaoTest(unittest.TestCase):
         self.mouse("<ButtonPress-1>",a)
         self.mouse("<B1-Motion>",b)
         self.mouse("<ButtonRelease-1>",b)
+
+    def test_biblioteca_opcional_e_seta_curva(self):
+        from nucleo.documento import novo, validar_dados
+        from nucleo.pacotes import REGISTRO
+        from types import SimpleNamespace
+        from imagem import rasterizar
+        e = self.editor
+        e.substituir(novo(),None)
+        self.assertNotIn("Ligar",e.ferramentas)
+        self.assertNotIn("Derivar",e.ferramentas)
+        e.ferramenta("Ligar")
+        self.assertEqual(e.modo,"Selecionar")
+        ids = tuple(p.id for p in REGISTRO.values() if p.dados.get("biblioteca",{}).get("id")=="diagrama.eletrico")
+        self.assertEqual(len(ids),2)
+        e.habilitar_grupo(ids,True)
+        self.assertEqual(len(e.dados["folhas"]),1)
+        e.ferramenta_biblioteca("Ligar")
+        self.assertEqual(e.modo,"Ligar")
+        e.habilitar_grupo(ids,False)
+        self.assertEqual(e.modo,"Selecionar")
+        e.ferramenta("Seta curva")
+        e.clique_curva((300,200))
+        e.continuar_curva((500,350))
+        self.assertGreater(len(e.curva_previa["pontos"]),2)
+        self.assertEqual(len(e.folha.get("formas",{})),0)
+        e.clique_curva((500,350),True)
+        e.clique_curva((700,400))
+        chave = e.selecao
+        self.assertEqual(e.folha["formas"][chave]["tipo"],"Seta curva")
+        self.assertIsNone(e.curva_previa)
+        # Ctrl+clique percorre o mesmo handler dos eventos reais.
+        pts = e.folha["formas"][chave]["pontos"]
+        x,y = [(a+b)/2 for a,b in zip(pts[0],pts[1])]
+        e.clique(SimpleNamespace(x=x*e.zoom-e.c.canvasx(0),y=y*e.zoom-e.c.canvasy(0),state=4))
+        self.assertEqual(e.modo,"Seta curva")
+        self.assertAlmostEqual(e.curva_fixa[0][0],x,delta=1/e.zoom)
+        self.assertAlmostEqual(e.curva_fixa[0][1],y,delta=1/e.zoom)
+        e.clique_curva((200,450))
+        self.assertEqual(len(e.folha["formas"]),2)
+        self.assertEqual(e.folha["ligacoes"],{})
+        self.assertEqual(validar_dados(e.dados),e.dados)
+        self.assertGreater(rasterizar(e.c,e.c.bbox("all"),1,"white",e.c.find_all()).width,0)
+        e.ramificar_forma((x,y))
+        e.ferramenta("Selecionar")
+        self.assertIsNone(e.curva_previa)
+        self.assertEqual(len(e.folha["formas"]),2)
+
+    def test_canvas_retido_e_movimento_mais_recente(self):
+        from types import SimpleNamespace
+        e=self.editor
+        e.folha["formas"]={"caixa":dict(tipo="Retângulo",pontos=[[300,200],[400,300]],cor=CORES[0])}
+        e.selecao="caixa"
+        e.render()
+        ids=e.c.find_withtag("forma:caixa")
+        caixa=e.c.bbox("forma:caixa")
+        for _ in range(5):e.render()
+        self.assertEqual(e.c.find_withtag("forma:caixa"),ids)
+        self.assertEqual(e.c.bbox("forma:caixa"),caixa)
+        for i in range(10):
+            e.folha["formas"]["caixa"]["pontos"]=[[300+i,200],[400+i,300]]
+            e.render()
+        box=e.c.bbox("forma:caixa")
+        self.assertEqual(box[2]-box[0],caixa[2]-caixa[0])
+        vistos=[]
+        for i in range(200):
+            e.agendar_movimento(lambda evento:vistos.append(evento.x),SimpleNamespace(x=i))
+        self.root.update()
+        self.assertEqual(vistos,[199])
+        e.agendar_movimento(lambda evento:vistos.append(evento.x),SimpleNamespace(x=201))
+        e.terminar_pan()
+        self.root.update()
+        self.assertEqual(vistos,[199,201])
+        e.folha["formas"].clear()
+        e.render()
+        self.assertFalse(e.c.find_withtag("forma:caixa"))
 
     def test_tracejado_nome_grade_e_categorias(self):
         from imagem import rasterizar
@@ -227,13 +303,37 @@ class EdicaoTest(unittest.TestCase):
             e.exportar()
             self.assertTrue(list(Path(pasta).glob("*.png")))
 
+    def test_ponta_livre_conecta_ao_arrastar(self):
+        from nucleo.documento import validar_dados
+        e = self.editor
+        e.folha["componentes"]["alvo"] = dict(tipo="Interruptor",nome="Alvo",x=550,y=300)
+        e.folha["nos"] = {"livre":[350,300],"origem":[250,200]}
+        e.folha["ligacoes"]["f"] = dict(a=["origem",0],b=["livre",0],condutor="L1",pontos=[[250,300]])
+        e.render();self.root.update()
+        destino = e.ponta(["alvo",0])
+        self.arrastar((350,300),(destino[0]+2,destino[1]+2))
+        self.assertEqual(e.folha["ligacoes"]["f"]["b"],["alvo",0])
+        self.assertNotIn("livre",e.folha["nos"])
+        rotas=e.caminhos_ligados("alvo")
+        e.folha["componentes"]["alvo"]["x"]+=100
+        e.acompanhar_pontas(rotas)
+        self.assertEqual(tuple(e.caminho(e.folha["ligacoes"]["f"])[-1]),e.ponta(["alvo",0]))
+        self.assertEqual(validar_dados(e.dados),e.dados)
+        e.ferramenta_biblioteca("Ligar")
+        self.assertNotIn("Circuito",dict(e.escolha_condutor.opcoes))
+        self.clique(e.ponta(["alvo",1]))
+        self.clique((750,430))
+        novos=[f for id_,f in e.folha["ligacoes"].items() if id_!="f"]
+        self.assertEqual(len(novos),1)
+        self.assertTrue(novos[0]["mostrar_nome"])
+
     def test_cor_compartilhada_isolada_por_biblioteca(self):
         from nucleo.documento import novo
         from nucleo.pacotes import obter,referencia
         e = self.editor
         e.substituir(novo(),None)
         e.folha["nos"] = {"a":[300,230],"b":[600,230]}
-        for id_,lib in (("u","eletrica.unifilar"),("m","eletrica.multifilar"),("m2","eletrica.multifilar")):
+        for id_,lib in (("u","eletrica.unifilar"),("u2","eletrica.unifilar"),("m","eletrica.multifilar"),("m2","eletrica.multifilar")):
             e.folha["ligacoes"][id_] = dict(a=["a",0],b=["b",0],condutor="L1",pacote=referencia(obter(lib)))
         e.selecao = "m"
         e.render()
@@ -244,7 +344,8 @@ class EdicaoTest(unittest.TestCase):
             self.assertEqual(cor==CORES[2],id_!="u")
         e.selecao = "u"
         e.definir_propriedade("cor",CORES[1])
-        self.assertEqual(e.folha["ligacoes"]["u"]["cor"],CORES[1])
+        self.assertEqual(e.cor_do_condutor("L1",obj=e.folha["ligacoes"]["u"]),CORES[1])
+        self.assertEqual(e.cor_do_condutor("L1",obj=e.folha["ligacoes"]["u2"]),CORES[1])
         self.assertEqual(e.cor_do_condutor("L1",obj=e.folha["ligacoes"]["m"]),CORES[2])
 
     def test_importacao_ia_revisao_cancelamento_e_texto_alterado(self):
@@ -333,6 +434,84 @@ class EdicaoTest(unittest.TestCase):
         self.assertIn("DADO_PRIVADO_TESTE",e.root.clipboard_get())
         e.copiar_contexto_ia(False)
         self.assertNotIn("DADO_PRIVADO_TESTE",e.root.clipboard_get())
+
+    def test_shift_formas_e_painel_vertical(self):
+        e = self.editor
+        e.aplicar_zoom(1.5,0,0)
+        def evento(nome,pos):
+            e.c.event_generate(nome,x=round(pos[0]*e.zoom-e.c.canvasx(0)),y=round(pos[1]*e.zoom-e.c.canvasy(0)),state=1)
+            self.root.update()
+        for tipo in ("Linha","Seta","Retângulo","Elipse","Losango"):
+            e.ferramenta(tipo)
+            evento("<ButtonPress-1>",(313,227))
+            evento("<B1-Motion>",(467,343))
+            evento("<ButtonRelease-1>",(467,343))
+            forma = e.folha["formas"][e.selecao]
+            self.assertTrue(all(v%10==0 for p in forma["pontos"] for v in p))
+        e.folha["formas"].clear()
+        e.ferramenta("Linha")
+        evento("<ButtonPress-1>",(313,227))
+        evento("<B1-Motion>",(467,343))
+        evento("<ButtonRelease-1>",(467,343))
+        e.ferramenta("Selecionar")
+        e.gesto_forma = ((470,340),[[310,230],[470,340]],1,False)
+        e.editar_forma((493,367),True)
+        self.assertEqual(e.folha["formas"][e.selecao]["pontos"][-1],[490,370])
+        alca = e.categorias.conteudo.winfo_children()[0]
+        alca.event_generate("<ButtonPress-1>",x=8,y=8)
+        alca.event_generate("<B1-Motion>",x=700,y=80,state=256)
+        self.root.update()
+        self.assertGreater(e.categorias.winfo_x(),500)
+        botoes = list(e.botoes_bibliotecas.values())
+        self.assertEqual(botoes[0].winfo_x(),botoes[1].winfo_x())
+        self.assertLess(botoes[0].winfo_y(),botoes[1].winfo_y())
+        e.abrir_biblioteca("eletrica.unifilar")
+        self.root.update()
+        self.assertGreaterEqual(e.painel.winfo_x(),0)
+        self.assertLessEqual(e.painel.winfo_x()+e.painel.winfo_width(),e.area.winfo_width())
+
+    def test_nome_escala_e_padrao_dos_proximos(self):
+        from nucleo.simbolos import posicao_nome
+        e = self.editor
+        e.folha["componentes"] = {
+            "a":dict(tipo="Interruptor",nome="S1",x=300,y=300),
+            "b":dict(tipo="Interruptor",nome="S2",x=600,y=300)}
+        e.selecao = "a"
+        e.render()
+        self.root.update()
+        item = e.folha["componentes"]["a"]
+        pos = posicao_nome(item,e.pacote_para(item))
+        self.arrastar(pos,(pos[0]+70,pos[1]+25))
+        self.assertEqual((item["x"],item["y"]),(300,300))
+        self.assertEqual(posicao_nome(item,e.pacote_para(item)),(pos[0]+70,pos[1]+25))
+        apoio = e.ponta(["a",0])
+        e.definir_propriedade("escala",3)
+        self.assertEqual(e.ponta(["a",0]),apoio)
+        self.assertTrue(all(v%10==0 for i in range(2) for v in e.ponta(["a",i])))
+        e.definir_propriedade("tamanho_nome",24)
+        self.assertEqual(item["tamanho_nome"],24)
+        self.assertEqual(e.folha["componentes"]["b"].get("tamanho_nome",12),12)
+        e.ferramenta("Interruptor")
+        novo = e.componente_no_cursor((800,300),True)
+        self.assertEqual(novo["tamanho_nome"],24)
+        e.ferramenta("Selecionar")
+        with TemporaryDirectory() as pasta:
+            e.path = Path(pasta)/"escala.json"
+            e.salvar()
+            e.substituir(carregar(e.path),e.path)
+            self.assertEqual(e.folha["componentes"]["a"],item)
+            e.exportar()
+            self.assertTrue(list(Path(pasta).glob("*.png")))
+
+    def test_shift_endireita_desvio_do_fio(self):
+        from tracado import alinhar_gesto_fio, deslocar_trecho
+        rota = [(0,0),(30,0),(30,30),(70,30),(70,0),(100,0)]
+        delta,guia = alinhar_gesto_fio(rota,"trecho",2,(0,-26),1)
+        self.assertEqual(guia,(1,0))
+        self.assertEqual(deslocar_trecho(rota,2,*delta),[(0,0),(100,0)])
+        delta,guia = alinhar_gesto_fio(rota,"trecho",2,(0,-26),4)
+        self.assertIsNone(guia)
+        self.assertGreater(len(deslocar_trecho(rota,2,*delta)),2)
 
     def test_texto_inline_e_estilo_persistido(self):
         e = self.editor

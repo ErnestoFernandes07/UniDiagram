@@ -4045,20 +4045,30 @@
     },
     "padrao": "L1",
     "cores_compartilhadas": true,
-    "nomes_ocultos": [
+    "nomes_ocultos": [],
+    "rotulo": "Condutor",
+    "categorias_ocultas": [
       "Circuito"
-    ],
-    "rotulo": "Condutor"
+    ]
   },
   "unidade": 10,
   "ia": {
     "descricao": "Biblioteca gráfica elétrica multifilar.",
     "restricoes": [
       "A biblioteca não dimensiona instalações nem comprova conformidade normativa.",
-      "Não converta objetos trocando apenas o pacote; os índices de portas têm significados diferentes."
+      "Não converta objetos trocando apenas o pacote; os índices de portas têm significados diferentes.",
+      "Circuito é categoria legada e oculta. Novas ligações usam L1, L2, L3, N, PE ou Retorno; nomes visíveis por padrão e cores compartilhadas por categoria nesta biblioteca e folha."
     ],
     "exemplos": [
       "Use os índices de terminais e as categorias de conexão declarados neste manifesto."
+    ]
+  },
+  "biblioteca": {
+    "id": "diagrama.eletrico",
+    "nome": "Diagrama elétrico",
+    "ferramentas": [
+      "Ligar",
+      "Derivar"
     ]
   }
 }

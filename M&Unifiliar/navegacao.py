@@ -2,6 +2,29 @@ from formas import limites
 
 
 class Navegacao:
+    def agendar_movimento(self,acao,event):
+        # Uma única posição pendente; não reproduzir o trajeto atrasado do mouse.
+        self.movimento_pendente=(acao,event)
+        if getattr(self,"timer_movimento",None) is None:
+            self.timer_movimento=self.root.after_idle(self.processar_movimento)
+
+    def cancelar_movimento(self):
+        if getattr(self,"timer_movimento",None) is not None:
+            self.root.after_cancel(self.timer_movimento)
+        self.timer_movimento=None
+        self.movimento_pendente=None
+
+    def processar_movimento(self):
+        pendente=getattr(self,"movimento_pendente",None)
+        self.cancelar_movimento()
+        if pendente:
+            acao,event=pendente
+            acao(event)
+
+    def terminar_pan(self,event=None):
+        self.processar_movimento()
+        self.c.configure(cursor=self.cursor_ferramenta())
+
     def iniciar_arrasto_mapa(self,e):
         self.inicio_mapa = (e.x_root-self.cartao_mapa.winfo_rootx(),e.y_root-self.cartao_mapa.winfo_rooty())
         self.cartao_mapa.tk.call("raise",self.cartao_mapa)
@@ -67,7 +90,11 @@ class Navegacao:
             yield forma["tipo"],forma["pontos"]
 
     def desenhar_mapa(self):
-        m = self.minimapa
+        from canvas_retido import CanvasRetido
+        if not hasattr(self,"mapa_retido"):
+            self.mapa_retido=CanvasRetido(self.minimapa)
+        m=self.mapa_retido
+        m.iniciar(1)
         w,h = int(m.cget("width")),int(m.cget("height"))
         x,y,u,v = self.vista()
         elementos = list(self.elementos_mapa())
@@ -83,7 +110,6 @@ class Navegacao:
         def tela(x,y):
             return (x*escala+ox,y*escala+oy)
 
-        m.delete("all")
         m.create_rectangle(*tela(x,y),*tela(u,v),fill="#dff1eb",outline="")
         for tipo,coords in elementos:
             mini = [tela(*p) for p in coords]
@@ -101,6 +127,7 @@ class Navegacao:
             px,py = tela(p["x"],p["y"])
             m.create_oval(px-6,py-6,px+6,py+6,fill="#146a59",outline="")
             m.create_text(px,py,text=k,font=("Segoe UI",-9,"bold"),fill="white")
+        m.finalizar()
         for k,botao in self.slots.items():
             salvo = str(k) in self.dados.get("waypoints",{})
             botao.configure(bg="#d7eee5" if salvo else "#eff3f1",fg="#216653" if salvo else "#63766f")

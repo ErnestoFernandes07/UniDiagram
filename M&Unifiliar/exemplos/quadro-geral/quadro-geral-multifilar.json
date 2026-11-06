@@ -1,0 +1,4697 @@
+{
+  "versao": 4,
+  "ativa": "Quadro geral",
+  "bibliotecas": [
+    {
+      "id": "eletrica.multifilar",
+      "versao": 1
+    }
+  ],
+  "folhas": {
+    "Quadro geral": {
+      "componentes": {
+        "geral": {
+          "tipo": "Disjuntor NEMA 3P",
+          "nome": "200 A",
+          "x": 500,
+          "y": 180,
+          "rotacao": 0,
+          "escala": 3,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            -120,
+            0
+          ]
+        },
+        "E-0-0": {
+          "tipo": "Disjuntor NEMA 3P",
+          "nome": "32 A",
+          "x": 300,
+          "y": 350,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-1-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 460,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-2-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 570,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-3-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 680,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-4-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "32 A",
+          "x": 300,
+          "y": 790,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-5-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 900,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-6-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 1010,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-7-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 1120,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-8-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 300,
+          "y": 1230,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "E-9-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "20 A",
+          "x": 300,
+          "y": 1340,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-0-0": {
+          "tipo": "Disjuntor NEMA 3P",
+          "nome": "150 A",
+          "x": 800,
+          "y": 350,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-1-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 460,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-2-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 570,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-3-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 680,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-5-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 900,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-6-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 1010,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-7-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 1120,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-8-0": {
+          "tipo": "Disjuntor NEMA 2P",
+          "nome": "25 A",
+          "x": 800,
+          "y": 1230,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-9-0": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "20 A",
+          "x": 800,
+          "y": 1340,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            0,
+            -35
+          ]
+        },
+        "D-4--22": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "16 A",
+          "x": 800,
+          "y": 768,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            50,
+            -14
+          ]
+        },
+        "D-4-32": {
+          "tipo": "Disjuntor NEMA 1P",
+          "nome": "20 A",
+          "x": 800,
+          "y": 822,
+          "rotacao": 90,
+          "escala": 1,
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "tamanho_nome": 16,
+          "posicao_nome": [
+            50,
+            -14
+          ]
+        }
+      },
+      "ligacoes": {
+        "fio-10": {
+          "a": [
+            "no-9",
+            0
+          ],
+          "b": [
+            "geral",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              440,
+              75
+            ],
+            [
+              470,
+              75
+            ]
+          ]
+        },
+        "fio-12": {
+          "a": [
+            "geral",
+            3
+          ],
+          "b": [
+            "no-11",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              470,
+              285
+            ],
+            [
+              440,
+              285
+            ]
+          ]
+        },
+        "fio-14": {
+          "a": [
+            "no-13",
+            0
+          ],
+          "b": [
+            "geral",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              500,
+              75
+            ],
+            [
+              500,
+              75
+            ]
+          ]
+        },
+        "fio-16": {
+          "a": [
+            "geral",
+            4
+          ],
+          "b": [
+            "no-15",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              500,
+              285
+            ],
+            [
+              500,
+              285
+            ]
+          ]
+        },
+        "fio-18": {
+          "a": [
+            "no-17",
+            0
+          ],
+          "b": [
+            "geral",
+            2
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              560,
+              75
+            ],
+            [
+              530,
+              75
+            ]
+          ]
+        },
+        "fio-20": {
+          "a": [
+            "geral",
+            5
+          ],
+          "b": [
+            "no-19",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              530,
+              285
+            ],
+            [
+              560,
+              285
+            ]
+          ]
+        },
+        "fio-25": {
+          "a": [
+            "no-23",
+            0
+          ],
+          "b": [
+            "no-24",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-29": {
+          "a": [
+            "no-27",
+            0
+          ],
+          "b": [
+            "no-28",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": [
+            [
+              845,
+              180
+            ]
+          ]
+        },
+        "fio-35": {
+          "a": [
+            "no-34",
+            0
+          ],
+          "b": [
+            "E-0-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-37": {
+          "a": [
+            "E-0-0",
+            3
+          ],
+          "b": [
+            "no-36",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-39": {
+          "a": [
+            "no-38",
+            0
+          ],
+          "b": [
+            "E-0-0",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-41": {
+          "a": [
+            "E-0-0",
+            4
+          ],
+          "b": [
+            "no-40",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-43": {
+          "a": [
+            "no-42",
+            0
+          ],
+          "b": [
+            "E-0-0",
+            2
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-45": {
+          "a": [
+            "E-0-0",
+            5
+          ],
+          "b": [
+            "no-44",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-49": {
+          "a": [
+            "no-48",
+            0
+          ],
+          "b": [
+            "E-1-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-51": {
+          "a": [
+            "E-1-0",
+            2
+          ],
+          "b": [
+            "no-50",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-53": {
+          "a": [
+            "no-52",
+            0
+          ],
+          "b": [
+            "E-1-0",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-55": {
+          "a": [
+            "E-1-0",
+            3
+          ],
+          "b": [
+            "no-54",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-58": {
+          "a": [
+            "no-56",
+            0
+          ],
+          "b": [
+            "no-57",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-62": {
+          "a": [
+            "no-61",
+            0
+          ],
+          "b": [
+            "E-2-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-64": {
+          "a": [
+            "E-2-0",
+            2
+          ],
+          "b": [
+            "no-63",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-66": {
+          "a": [
+            "no-65",
+            0
+          ],
+          "b": [
+            "E-2-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-68": {
+          "a": [
+            "E-2-0",
+            3
+          ],
+          "b": [
+            "no-67",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-71": {
+          "a": [
+            "no-69",
+            0
+          ],
+          "b": [
+            "no-70",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-75": {
+          "a": [
+            "no-74",
+            0
+          ],
+          "b": [
+            "E-3-0",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-77": {
+          "a": [
+            "E-3-0",
+            2
+          ],
+          "b": [
+            "no-76",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-79": {
+          "a": [
+            "no-78",
+            0
+          ],
+          "b": [
+            "E-3-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-81": {
+          "a": [
+            "E-3-0",
+            3
+          ],
+          "b": [
+            "no-80",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-84": {
+          "a": [
+            "no-82",
+            0
+          ],
+          "b": [
+            "no-83",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-88": {
+          "a": [
+            "no-87",
+            0
+          ],
+          "b": [
+            "E-4-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-90": {
+          "a": [
+            "E-4-0",
+            2
+          ],
+          "b": [
+            "no-89",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-92": {
+          "a": [
+            "no-91",
+            0
+          ],
+          "b": [
+            "E-4-0",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-94": {
+          "a": [
+            "E-4-0",
+            3
+          ],
+          "b": [
+            "no-93",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-97": {
+          "a": [
+            "no-95",
+            0
+          ],
+          "b": [
+            "no-96",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-101": {
+          "a": [
+            "no-100",
+            0
+          ],
+          "b": [
+            "E-5-0",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-103": {
+          "a": [
+            "E-5-0",
+            1
+          ],
+          "b": [
+            "no-102",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-106": {
+          "a": [
+            "no-104",
+            0
+          ],
+          "b": [
+            "no-105",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-109": {
+          "a": [
+            "no-107",
+            0
+          ],
+          "b": [
+            "no-108",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-113": {
+          "a": [
+            "no-112",
+            0
+          ],
+          "b": [
+            "E-6-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-115": {
+          "a": [
+            "E-6-0",
+            1
+          ],
+          "b": [
+            "no-114",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-118": {
+          "a": [
+            "no-116",
+            0
+          ],
+          "b": [
+            "no-117",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-121": {
+          "a": [
+            "no-119",
+            0
+          ],
+          "b": [
+            "no-120",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-125": {
+          "a": [
+            "no-124",
+            0
+          ],
+          "b": [
+            "E-7-0",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-127": {
+          "a": [
+            "E-7-0",
+            2
+          ],
+          "b": [
+            "no-126",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-129": {
+          "a": [
+            "no-128",
+            0
+          ],
+          "b": [
+            "E-7-0",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-131": {
+          "a": [
+            "E-7-0",
+            3
+          ],
+          "b": [
+            "no-130",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-134": {
+          "a": [
+            "no-132",
+            0
+          ],
+          "b": [
+            "no-133",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-138": {
+          "a": [
+            "no-137",
+            0
+          ],
+          "b": [
+            "E-8-0",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-140": {
+          "a": [
+            "E-8-0",
+            2
+          ],
+          "b": [
+            "no-139",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-142": {
+          "a": [
+            "no-141",
+            0
+          ],
+          "b": [
+            "E-8-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-144": {
+          "a": [
+            "E-8-0",
+            3
+          ],
+          "b": [
+            "no-143",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-147": {
+          "a": [
+            "no-145",
+            0
+          ],
+          "b": [
+            "no-146",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-151": {
+          "a": [
+            "no-150",
+            0
+          ],
+          "b": [
+            "E-9-0",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-153": {
+          "a": [
+            "E-9-0",
+            1
+          ],
+          "b": [
+            "no-152",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-156": {
+          "a": [
+            "no-154",
+            0
+          ],
+          "b": [
+            "no-155",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-159": {
+          "a": [
+            "no-157",
+            0
+          ],
+          "b": [
+            "no-158",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-162": {
+          "a": [
+            "no-34",
+            0
+          ],
+          "b": [
+            "D-0-0",
+            3
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-164": {
+          "a": [
+            "D-0-0",
+            0
+          ],
+          "b": [
+            "no-163",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-165": {
+          "a": [
+            "no-38",
+            0
+          ],
+          "b": [
+            "D-0-0",
+            4
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-167": {
+          "a": [
+            "D-0-0",
+            1
+          ],
+          "b": [
+            "no-166",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-168": {
+          "a": [
+            "no-42",
+            0
+          ],
+          "b": [
+            "D-0-0",
+            5
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-170": {
+          "a": [
+            "D-0-0",
+            2
+          ],
+          "b": [
+            "no-169",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-173": {
+          "a": [
+            "no-48",
+            0
+          ],
+          "b": [
+            "D-1-0",
+            2
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-175": {
+          "a": [
+            "D-1-0",
+            0
+          ],
+          "b": [
+            "no-174",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-176": {
+          "a": [
+            "no-52",
+            0
+          ],
+          "b": [
+            "D-1-0",
+            3
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-178": {
+          "a": [
+            "D-1-0",
+            1
+          ],
+          "b": [
+            "no-177",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-180": {
+          "a": [
+            "no-56",
+            0
+          ],
+          "b": [
+            "no-179",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-183": {
+          "a": [
+            "no-61",
+            0
+          ],
+          "b": [
+            "D-2-0",
+            2
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-185": {
+          "a": [
+            "D-2-0",
+            0
+          ],
+          "b": [
+            "no-184",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-186": {
+          "a": [
+            "no-65",
+            0
+          ],
+          "b": [
+            "D-2-0",
+            3
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-188": {
+          "a": [
+            "D-2-0",
+            1
+          ],
+          "b": [
+            "no-187",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-190": {
+          "a": [
+            "no-69",
+            0
+          ],
+          "b": [
+            "no-189",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-193": {
+          "a": [
+            "no-74",
+            0
+          ],
+          "b": [
+            "D-3-0",
+            2
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-195": {
+          "a": [
+            "D-3-0",
+            0
+          ],
+          "b": [
+            "no-194",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-196": {
+          "a": [
+            "no-78",
+            0
+          ],
+          "b": [
+            "D-3-0",
+            3
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-198": {
+          "a": [
+            "D-3-0",
+            1
+          ],
+          "b": [
+            "no-197",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-200": {
+          "a": [
+            "no-82",
+            0
+          ],
+          "b": [
+            "no-199",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-204": {
+          "a": [
+            "no-203",
+            0
+          ],
+          "b": [
+            "D-5-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-206": {
+          "a": [
+            "D-5-0",
+            0
+          ],
+          "b": [
+            "no-205",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-208": {
+          "a": [
+            "no-104",
+            0
+          ],
+          "b": [
+            "no-207",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-210": {
+          "a": [
+            "no-107",
+            0
+          ],
+          "b": [
+            "no-209",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-214": {
+          "a": [
+            "no-213",
+            0
+          ],
+          "b": [
+            "D-6-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-216": {
+          "a": [
+            "D-6-0",
+            0
+          ],
+          "b": [
+            "no-215",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-218": {
+          "a": [
+            "no-116",
+            0
+          ],
+          "b": [
+            "no-217",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-220": {
+          "a": [
+            "no-119",
+            0
+          ],
+          "b": [
+            "no-219",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-223": {
+          "a": [
+            "no-124",
+            0
+          ],
+          "b": [
+            "D-7-0",
+            2
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-225": {
+          "a": [
+            "D-7-0",
+            0
+          ],
+          "b": [
+            "no-224",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-226": {
+          "a": [
+            "no-128",
+            0
+          ],
+          "b": [
+            "D-7-0",
+            3
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-228": {
+          "a": [
+            "D-7-0",
+            1
+          ],
+          "b": [
+            "no-227",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-230": {
+          "a": [
+            "no-132",
+            0
+          ],
+          "b": [
+            "no-229",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-233": {
+          "a": [
+            "no-137",
+            0
+          ],
+          "b": [
+            "D-8-0",
+            2
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-235": {
+          "a": [
+            "D-8-0",
+            0
+          ],
+          "b": [
+            "no-234",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-236": {
+          "a": [
+            "no-141",
+            0
+          ],
+          "b": [
+            "D-8-0",
+            3
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-238": {
+          "a": [
+            "D-8-0",
+            1
+          ],
+          "b": [
+            "no-237",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-240": {
+          "a": [
+            "no-145",
+            0
+          ],
+          "b": [
+            "no-239",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-244": {
+          "a": [
+            "no-243",
+            0
+          ],
+          "b": [
+            "D-9-0",
+            1
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-246": {
+          "a": [
+            "D-9-0",
+            0
+          ],
+          "b": [
+            "no-245",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-248": {
+          "a": [
+            "no-154",
+            0
+          ],
+          "b": [
+            "no-247",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-250": {
+          "a": [
+            "no-157",
+            0
+          ],
+          "b": [
+            "no-249",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-254": {
+          "a": [
+            "no-253",
+            0
+          ],
+          "b": [
+            "D-4--22",
+            1
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-256": {
+          "a": [
+            "D-4--22",
+            0
+          ],
+          "b": [
+            "no-255",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-259": {
+          "a": [
+            "no-257",
+            0
+          ],
+          "b": [
+            "no-258",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-263": {
+          "a": [
+            "no-262",
+            0
+          ],
+          "b": [
+            "D-4-32",
+            1
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-265": {
+          "a": [
+            "D-4-32",
+            0
+          ],
+          "b": [
+            "no-264",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-268": {
+          "a": [
+            "no-266",
+            0
+          ],
+          "b": [
+            "no-267",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-273": {
+          "a": [
+            "no-272",
+            0
+          ],
+          "b": [
+            "no-271",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-275": {
+          "a": [
+            "no-271",
+            0
+          ],
+          "b": [
+            "no-274",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-278": {
+          "a": [
+            "no-277",
+            0
+          ],
+          "b": [
+            "no-276",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-280": {
+          "a": [
+            "no-276",
+            0
+          ],
+          "b": [
+            "no-279",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-283": {
+          "a": [
+            "no-282",
+            0
+          ],
+          "b": [
+            "no-281",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-285": {
+          "a": [
+            "no-281",
+            0
+          ],
+          "b": [
+            "no-284",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-288": {
+          "a": [
+            "no-287",
+            0
+          ],
+          "b": [
+            "no-286",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-290": {
+          "a": [
+            "no-286",
+            0
+          ],
+          "b": [
+            "no-289",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-294": {
+          "a": [
+            "no-11",
+            0
+          ],
+          "b": [
+            "no-34",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-295": {
+          "a": [
+            "no-34",
+            0
+          ],
+          "b": [
+            "no-48",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-296": {
+          "a": [
+            "no-48",
+            0
+          ],
+          "b": [
+            "no-61",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-297": {
+          "a": [
+            "no-61",
+            0
+          ],
+          "b": [
+            "no-253",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-298": {
+          "a": [
+            "no-253",
+            0
+          ],
+          "b": [
+            "no-87",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-299": {
+          "a": [
+            "no-87",
+            0
+          ],
+          "b": [
+            "no-112",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-300": {
+          "a": [
+            "no-112",
+            0
+          ],
+          "b": [
+            "no-124",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-301": {
+          "a": [
+            "no-124",
+            0
+          ],
+          "b": [
+            "no-281",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-302": {
+          "a": [
+            "no-281",
+            0
+          ],
+          "b": [
+            "no-293",
+            0
+          ],
+          "condutor": "L1",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-304": {
+          "a": [
+            "no-15",
+            0
+          ],
+          "b": [
+            "no-38",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-305": {
+          "a": [
+            "no-38",
+            0
+          ],
+          "b": [
+            "no-52",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-306": {
+          "a": [
+            "no-52",
+            0
+          ],
+          "b": [
+            "no-74",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-307": {
+          "a": [
+            "no-74",
+            0
+          ],
+          "b": [
+            "no-91",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-308": {
+          "a": [
+            "no-91",
+            0
+          ],
+          "b": [
+            "no-262",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-309": {
+          "a": [
+            "no-262",
+            0
+          ],
+          "b": [
+            "no-100",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-310": {
+          "a": [
+            "no-100",
+            0
+          ],
+          "b": [
+            "no-128",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-311": {
+          "a": [
+            "no-128",
+            0
+          ],
+          "b": [
+            "no-137",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-312": {
+          "a": [
+            "no-137",
+            0
+          ],
+          "b": [
+            "no-150",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-313": {
+          "a": [
+            "no-150",
+            0
+          ],
+          "b": [
+            "no-271",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-314": {
+          "a": [
+            "no-271",
+            0
+          ],
+          "b": [
+            "no-303",
+            0
+          ],
+          "condutor": "L2",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-316": {
+          "a": [
+            "no-19",
+            0
+          ],
+          "b": [
+            "no-42",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-317": {
+          "a": [
+            "no-42",
+            0
+          ],
+          "b": [
+            "no-65",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-318": {
+          "a": [
+            "no-65",
+            0
+          ],
+          "b": [
+            "no-78",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-319": {
+          "a": [
+            "no-78",
+            0
+          ],
+          "b": [
+            "no-203",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-320": {
+          "a": [
+            "no-203",
+            0
+          ],
+          "b": [
+            "no-213",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-321": {
+          "a": [
+            "no-213",
+            0
+          ],
+          "b": [
+            "no-141",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-322": {
+          "a": [
+            "no-141",
+            0
+          ],
+          "b": [
+            "no-243",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-323": {
+          "a": [
+            "no-243",
+            0
+          ],
+          "b": [
+            "no-276",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-324": {
+          "a": [
+            "no-276",
+            0
+          ],
+          "b": [
+            "no-286",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-325": {
+          "a": [
+            "no-286",
+            0
+          ],
+          "b": [
+            "no-315",
+            0
+          ],
+          "condutor": "L3",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-327": {
+          "a": [
+            "no-21",
+            0
+          ],
+          "b": [
+            "no-23",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-328": {
+          "a": [
+            "no-23",
+            0
+          ],
+          "b": [
+            "no-104",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-329": {
+          "a": [
+            "no-104",
+            0
+          ],
+          "b": [
+            "no-116",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-330": {
+          "a": [
+            "no-116",
+            0
+          ],
+          "b": [
+            "no-154",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-331": {
+          "a": [
+            "no-154",
+            0
+          ],
+          "b": [
+            "no-326",
+            0
+          ],
+          "condutor": "N",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-333": {
+          "a": [
+            "no-22",
+            0
+          ],
+          "b": [
+            "no-27",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-334": {
+          "a": [
+            "no-27",
+            0
+          ],
+          "b": [
+            "no-56",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-335": {
+          "a": [
+            "no-56",
+            0
+          ],
+          "b": [
+            "no-69",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-336": {
+          "a": [
+            "no-69",
+            0
+          ],
+          "b": [
+            "no-82",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-337": {
+          "a": [
+            "no-82",
+            0
+          ],
+          "b": [
+            "no-257",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-338": {
+          "a": [
+            "no-257",
+            0
+          ],
+          "b": [
+            "no-95",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-339": {
+          "a": [
+            "no-95",
+            0
+          ],
+          "b": [
+            "no-266",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-340": {
+          "a": [
+            "no-266",
+            0
+          ],
+          "b": [
+            "no-107",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-341": {
+          "a": [
+            "no-107",
+            0
+          ],
+          "b": [
+            "no-119",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-342": {
+          "a": [
+            "no-119",
+            0
+          ],
+          "b": [
+            "no-132",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-343": {
+          "a": [
+            "no-132",
+            0
+          ],
+          "b": [
+            "no-145",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-344": {
+          "a": [
+            "no-145",
+            0
+          ],
+          "b": [
+            "no-157",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        },
+        "fio-345": {
+          "a": [
+            "no-157",
+            0
+          ],
+          "b": [
+            "no-332",
+            0
+          ],
+          "condutor": "PE",
+          "pacote": {
+            "id": "eletrica.multifilar",
+            "versao": 1
+          },
+          "mostrar_nome": false,
+          "espessura": 1.5,
+          "pontos": []
+        }
+      },
+      "nos": {
+        "no-9": [
+          440,
+          65
+        ],
+        "no-11": [
+          440,
+          300
+        ],
+        "no-13": [
+          500,
+          65
+        ],
+        "no-15": [
+          500,
+          300
+        ],
+        "no-17": [
+          560,
+          65
+        ],
+        "no-19": [
+          560,
+          300
+        ],
+        "no-21": [
+          620,
+          65
+        ],
+        "no-22": [
+          680,
+          65
+        ],
+        "no-23": [
+          620,
+          95
+        ],
+        "no-24": [
+          835,
+          95
+        ],
+        "no-27": [
+          680,
+          180
+        ],
+        "no-28": [
+          845,
+          245
+        ],
+        "no-34": [
+          440,
+          340
+        ],
+        "no-36": [
+          190,
+          340
+        ],
+        "no-38": [
+          500,
+          350
+        ],
+        "no-40": [
+          190,
+          350
+        ],
+        "no-42": [
+          560,
+          360
+        ],
+        "no-44": [
+          190,
+          360
+        ],
+        "no-48": [
+          440,
+          450
+        ],
+        "no-50": [
+          190,
+          450
+        ],
+        "no-52": [
+          500,
+          470
+        ],
+        "no-54": [
+          190,
+          470
+        ],
+        "no-56": [
+          680,
+          490
+        ],
+        "no-57": [
+          190,
+          490
+        ],
+        "no-61": [
+          440,
+          560
+        ],
+        "no-63": [
+          190,
+          560
+        ],
+        "no-65": [
+          560,
+          580
+        ],
+        "no-67": [
+          190,
+          580
+        ],
+        "no-69": [
+          680,
+          600
+        ],
+        "no-70": [
+          190,
+          600
+        ],
+        "no-74": [
+          500,
+          670
+        ],
+        "no-76": [
+          190,
+          670
+        ],
+        "no-78": [
+          560,
+          690
+        ],
+        "no-80": [
+          190,
+          690
+        ],
+        "no-82": [
+          680,
+          710
+        ],
+        "no-83": [
+          190,
+          710
+        ],
+        "no-87": [
+          440,
+          780
+        ],
+        "no-89": [
+          190,
+          780
+        ],
+        "no-91": [
+          500,
+          800
+        ],
+        "no-93": [
+          190,
+          800
+        ],
+        "no-95": [
+          680,
+          820
+        ],
+        "no-96": [
+          190,
+          820
+        ],
+        "no-100": [
+          500,
+          900
+        ],
+        "no-102": [
+          190,
+          900
+        ],
+        "no-104": [
+          620,
+          880
+        ],
+        "no-105": [
+          190,
+          880
+        ],
+        "no-107": [
+          680,
+          920
+        ],
+        "no-108": [
+          190,
+          920
+        ],
+        "no-112": [
+          440,
+          1010
+        ],
+        "no-114": [
+          190,
+          1010
+        ],
+        "no-116": [
+          620,
+          990
+        ],
+        "no-117": [
+          190,
+          990
+        ],
+        "no-119": [
+          680,
+          1030
+        ],
+        "no-120": [
+          190,
+          1030
+        ],
+        "no-124": [
+          440,
+          1110
+        ],
+        "no-126": [
+          190,
+          1110
+        ],
+        "no-128": [
+          500,
+          1130
+        ],
+        "no-130": [
+          190,
+          1130
+        ],
+        "no-132": [
+          680,
+          1150
+        ],
+        "no-133": [
+          190,
+          1150
+        ],
+        "no-137": [
+          500,
+          1220
+        ],
+        "no-139": [
+          190,
+          1220
+        ],
+        "no-141": [
+          560,
+          1240
+        ],
+        "no-143": [
+          190,
+          1240
+        ],
+        "no-145": [
+          680,
+          1260
+        ],
+        "no-146": [
+          190,
+          1260
+        ],
+        "no-150": [
+          500,
+          1340
+        ],
+        "no-152": [
+          190,
+          1340
+        ],
+        "no-154": [
+          620,
+          1320
+        ],
+        "no-155": [
+          190,
+          1320
+        ],
+        "no-157": [
+          680,
+          1360
+        ],
+        "no-158": [
+          190,
+          1360
+        ],
+        "no-163": [
+          910,
+          340
+        ],
+        "no-166": [
+          910,
+          350
+        ],
+        "no-169": [
+          910,
+          360
+        ],
+        "no-174": [
+          910,
+          450
+        ],
+        "no-177": [
+          910,
+          470
+        ],
+        "no-179": [
+          910,
+          490
+        ],
+        "no-184": [
+          910,
+          560
+        ],
+        "no-187": [
+          910,
+          580
+        ],
+        "no-189": [
+          910,
+          600
+        ],
+        "no-194": [
+          910,
+          670
+        ],
+        "no-197": [
+          910,
+          690
+        ],
+        "no-199": [
+          910,
+          710
+        ],
+        "no-203": [
+          560,
+          900
+        ],
+        "no-205": [
+          910,
+          900
+        ],
+        "no-207": [
+          910,
+          880
+        ],
+        "no-209": [
+          910,
+          920
+        ],
+        "no-213": [
+          560,
+          1010
+        ],
+        "no-215": [
+          910,
+          1010
+        ],
+        "no-217": [
+          910,
+          990
+        ],
+        "no-219": [
+          910,
+          1030
+        ],
+        "no-224": [
+          910,
+          1110
+        ],
+        "no-227": [
+          910,
+          1130
+        ],
+        "no-229": [
+          910,
+          1150
+        ],
+        "no-234": [
+          910,
+          1220
+        ],
+        "no-237": [
+          910,
+          1240
+        ],
+        "no-239": [
+          910,
+          1260
+        ],
+        "no-243": [
+          560,
+          1340
+        ],
+        "no-245": [
+          910,
+          1340
+        ],
+        "no-247": [
+          910,
+          1320
+        ],
+        "no-249": [
+          910,
+          1360
+        ],
+        "no-253": [
+          440,
+          768
+        ],
+        "no-255": [
+          910,
+          768
+        ],
+        "no-257": [
+          680,
+          788
+        ],
+        "no-258": [
+          910,
+          788
+        ],
+        "no-262": [
+          500,
+          822
+        ],
+        "no-264": [
+          910,
+          822
+        ],
+        "no-266": [
+          680,
+          842
+        ],
+        "no-267": [
+          910,
+          842
+        ],
+        "no-271": [
+          500,
+          1430
+        ],
+        "no-272": [
+          190,
+          1430
+        ],
+        "no-274": [
+          910,
+          1430
+        ],
+        "no-276": [
+          560,
+          1450
+        ],
+        "no-277": [
+          190,
+          1450
+        ],
+        "no-279": [
+          910,
+          1450
+        ],
+        "no-281": [
+          440,
+          1480
+        ],
+        "no-282": [
+          190,
+          1480
+        ],
+        "no-284": [
+          910,
+          1480
+        ],
+        "no-286": [
+          560,
+          1500
+        ],
+        "no-287": [
+          190,
+          1500
+        ],
+        "no-289": [
+          910,
+          1500
+        ],
+        "no-293": [
+          440,
+          1510
+        ],
+        "no-303": [
+          500,
+          1510
+        ],
+        "no-315": [
+          560,
+          1510
+        ],
+        "no-326": [
+          620,
+          1510
+        ],
+        "no-332": [
+          680,
+          1510
+        ]
+      },
+      "formas": {
+        "texto-1": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              520,
+              12
+            ]
+          ],
+          "texto": "QUADRO GERAL",
+          "tamanho": 25,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-2": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              160,
+              75
+            ]
+          ],
+          "texto": "DIAGRAMA MULTIFILAR",
+          "tamanho": 22,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-3": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              135,
+              101
+            ]
+          ],
+          "texto": "SEM ESCALA · REPRODUÇÃO",
+          "tamanho": 12,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-4": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              440,
+              45
+            ]
+          ],
+          "texto": "Fase R",
+          "tamanho": 15,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-5": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              500,
+              45
+            ]
+          ],
+          "texto": "Fase S",
+          "tamanho": 15,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-6": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              560,
+              45
+            ]
+          ],
+          "texto": "Fase T",
+          "tamanho": 15,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-7": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              620,
+              45
+            ]
+          ],
+          "texto": "N",
+          "tamanho": 15,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-8": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              680,
+              45
+            ]
+          ],
+          "texto": "T / PE",
+          "tamanho": 15,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-26": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              925,
+              95
+            ]
+          ],
+          "texto": "BARRA DE NEUTRO",
+          "tamanho": 14,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "linha-30": {
+          "tipo": "Linha",
+          "pontos": [
+            [
+              832.0,
+              252
+            ],
+            [
+              858.0,
+              252
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 1
+        },
+        "linha-31": {
+          "tipo": "Linha",
+          "pontos": [
+            [
+              836.0,
+              259
+            ],
+            [
+              854.0,
+              259
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 1
+        },
+        "linha-32": {
+          "tipo": "Linha",
+          "pontos": [
+            [
+              841.0,
+              266
+            ],
+            [
+              849.0,
+              266
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 1
+        },
+        "texto-33": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              935,
+              205
+            ]
+          ],
+          "texto": "BARRA DE COBRE\nDO FIO TERRA",
+          "tamanho": 14,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-46": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              325.0
+            ],
+            [
+              190,
+              385.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-47": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              355
+            ]
+          ],
+          "texto": "Máquina Sorv.\n380 V",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-59": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              435.0
+            ],
+            [
+              190,
+              495.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-60": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              465
+            ]
+          ],
+          "texto": "COPA",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-72": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              545.0
+            ],
+            [
+              190,
+              605.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-73": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              575
+            ]
+          ],
+          "texto": "Forno",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-85": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              655.0
+            ],
+            [
+              190,
+              715.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-86": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              685
+            ]
+          ],
+          "texto": "Resfr.\nLanch",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-98": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              765.0
+            ],
+            [
+              190,
+              825.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-99": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              795
+            ]
+          ],
+          "texto": "NO break",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-110": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              875.0
+            ],
+            [
+              190,
+              935.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-111": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              905
+            ]
+          ],
+          "texto": "COPA",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-122": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              985.0
+            ],
+            [
+              190,
+              1045.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-123": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              1015
+            ]
+          ],
+          "texto": "Refresqueira",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-135": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              1095.0
+            ],
+            [
+              190,
+              1155.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-136": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              1125
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-148": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              1205.0
+            ],
+            [
+              190,
+              1265.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-149": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              1235
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-160": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              60,
+              1315.0
+            ],
+            [
+              190,
+              1375.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-161": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              125,
+              1345
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-171": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              325.0
+            ],
+            [
+              1040,
+              385.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-172": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              355
+            ]
+          ],
+          "texto": "QD-AC",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-181": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              435.0
+            ],
+            [
+              1040,
+              495.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-182": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              465
+            ]
+          ],
+          "texto": "Tomada\nServiço",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-191": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              545.0
+            ],
+            [
+              1040,
+              605.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-192": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              575
+            ]
+          ],
+          "texto": "Geladeira\nlanch",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-201": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              655.0
+            ],
+            [
+              1040,
+              715.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-202": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              685
+            ]
+          ],
+          "texto": "Balcão\nSalgados",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-211": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              875.0
+            ],
+            [
+              1040,
+              935.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-212": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              905
+            ]
+          ],
+          "texto": "TomadaServ",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-221": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              985.0
+            ],
+            [
+              1040,
+              1045.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-222": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              1015
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-231": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              1095.0
+            ],
+            [
+              1040,
+              1155.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-232": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              1125
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-241": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              1205.0
+            ],
+            [
+              1040,
+              1265.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-242": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              1235
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-251": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              1315.0
+            ],
+            [
+              1040,
+              1375.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-252": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              1345
+            ]
+          ],
+          "texto": "Reserva",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-260": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              751.0
+            ],
+            [
+              1040,
+              795.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-261": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              773
+            ]
+          ],
+          "texto": "ILUM SUB.",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "carga-269": {
+          "tipo": "Retângulo",
+          "pontos": [
+            [
+              910,
+              805.0
+            ],
+            [
+              1040,
+              849.0
+            ]
+          ],
+          "cor": "#283b46",
+          "espessura": 0.7
+        },
+        "texto-270": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              827
+            ]
+          ],
+          "texto": "ILUM SALÃO",
+          "tamanho": 16,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-291": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              115,
+              1465
+            ]
+          ],
+          "texto": "BARRAS\nRESERVAS",
+          "tamanho": 14,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-292": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              975,
+              1465
+            ]
+          ],
+          "texto": "4 BARRAS\nRESERVAS",
+          "tamanho": 14,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-346": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              560,
+              1555
+            ]
+          ],
+          "texto": "Reprodução da imagem fornecida · ligações inferiores parcialmente cortadas na referência",
+          "tamanho": 13,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        },
+        "texto-347": {
+          "tipo": "Texto",
+          "pontos": [
+            [
+              560,
+              1578
+            ]
+          ],
+          "texto": "Identificações e correntes transcritas; dimensionamento e adequação elétrica não verificados.",
+          "tamanho": 13,
+          "fonte": "Arial",
+          "cor": "#283b46"
+        }
+      },
+      "cores_bibliotecas": {
+        "eletrica.multifilar": {
+          "L1": "#283b46",
+          "L2": "#ad3550",
+          "L3": "#8553a0",
+          "N": "#327cbb",
+          "PE": "#a27612",
+          "Retorno": "#af5739"
+        }
+      }
+    }
+  },
+  "grade": {
+    "tipo": "nenhuma",
+    "passo": 20
+  },
+  "vistas": {
+    "Quadro geral": {
+      "x": 530,
+      "y": 760,
+      "zoom": 0.4
+    }
+  }
+}

@@ -57,3 +57,33 @@ Salvar JSON preserva o documento editável. Exportar folha em PNG salva a folha 
 ## Troca de projetos com IA
 
 Os comandos de copiar contexto e importar resposta ficam no menu Arquivo. A interface gráfica permanece a mesma. A importação exige validação e revisão antes de aplicar. Veja [INTEGRACAO_IA.md](INTEGRACAO_IA.md) para as opções de projeto novo, nova janela, substituição e recuperação.
+
+## Formas com Shift e barra lateral
+
+Durante a criação de formas e linhas, segure Shift para encaixar na malha de 10 unidades. O mesmo vale para mover formas ou ajustar suas alças; terminais e nós próximos continuam tendo prioridade de conexão.
+
+As bibliotecas aparecem em uma barra vertical à esquerda. Arraste o título ⠿ Bibliotecas para levá-la à direita ou a outra posição. Os catálogos abrem no lado disponível. A posição é mantida durante a sessão, sem alterar o JSON do projeto.
+
+Selecione um componente e arraste seu nome para reposicioná-lo. No painel lateral, Escala oferece 1× a 4×, preservando o terminal de apoio e acompanhando as ligações. Tamanho do nome altera o selecionado e vira padrão para as próximas inserções na sessão; os demais componentes não mudam. Shift ao arrastar um trecho de fio encaixa nos eixos próximos e remove dobras redundantes. Junções de derivação reais são preservadas.
+
+## Biblioteca de domínio e setas com dobras
+
+O início é genérico: uma folha, formas e nenhuma biblioteca habilitada. Em **Bibliotecas +**, marque **Diagrama elétrico** para habilitar Unifilar e Multifilar juntos. As opções individuais permitem habilitar apenas um catálogo. A barra lateral arrastável mostra os catálogos e **Fio · Ligar** / **Fio · Derivar**; passe o mouse nos catálogos para acessar componentes. Desmarcar oculta ferramentas, preserva objetos e não cria nem remove folhas. A escolha é salva no JSON.
+
+Na barra horizontal, **Seta curva** desenha caminhos com joelhos arredondados. Clique no início, mova o cursor para ver a prévia, use **Shift + clique** para fixar dobras na malha de 10 unidades e clique sem Shift para concluir. Esc cancela. Selecione a seta para arrastar suas alças.
+
+Em Selecionar, **Ctrl + clique sobre uma linha, seta ou traço livre** começa uma nova seta no ponto clicado. Essa ramificação é visual e independente: não cria nó elétrico nem acompanha automaticamente movimentos futuros da linha original. Ctrl + clique em componentes mantém a seleção múltipla. L/D só ativam ferramentas de conexão quando há biblioteca habilitada; a derivação elétrica permanece em Fio · Derivar.
+
+### Fios e vínculo de terminais (2026-11-06)
+
+Os botões laterais de ligar e derivar usam ícones, sem seta de dropdown; o nome e atalho aparecem ao passar o mouse. Os novos fios elétricos usam L1 inicialmente e mostram o nome por padrão. Arrastar uma ponta livre até 10 pixels de um terminal conecta de fato ao componente: todas as ligações e formas ancoradas naquele nó passam a referenciar a porta. Mover o componente passa a levar os fios junto. Desfazer restaura a ponta livre.
+
+Unifilar e Multifilar compartilham cores por categoria dentro de cada biblioteca e folha. Alterar L1 atualiza todos os L1 daquele catálogo, incluindo novas ligações. Bibliotecas diferentes permanecem independentes. Cores locais antigas não prevalecem sobre essa política compartilhada. “Circuito” fica oculto para novas escolhas, mas continua reconhecido em arquivos antigos para evitar renomear silenciosamente o conteúdo.
+
+## Fluidez do canvas — 2026-11-06
+
+O canvas e o minimapa reutilizam as primitivas já desenhadas. Arrastar um componente atualiza o componente e seus fios, sem reconstruir os objetos que não mudaram. Eventos de movimento pendentes são agrupados e apenas a posição mais recente é processada; soltar o botão aplica o último movimento antes de encerrar o gesto. Isso evita reproduzir um trajeto atrasado do cursor. Zoom, seleção e exportação continuam disponíveis.
+
+A otimização não desativa vínculos: fios conectados continuam acompanhando componentes, inclusive sem Shift. Shift mantém seu papel de encaixe e alinhamento assistido. Não foi necessário mudar a biblioteca gráfica. Projetos com muita transparência ainda exigem composição raster e podem custar mais.
+
+Para medir com o quadro de exemplo, execute `python -B medir_desempenho.py`. O script abre uma janela temporária e mede redesenho, pan e arraste circular; não salva alterações no projeto. As medições dependem do computador e do desenho.

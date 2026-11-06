@@ -53,7 +53,7 @@ def ler_pacote(path):
         exigir(isinstance(d["nome"],str) and 0<len(d["nome"])<=48)
         exigir(isinstance(d["componentes"],dict) and 0<len(d["componentes"])<=500)
         exigir(isinstance(d["categorias"],dict) and 0<len(d["categorias"])<=8)
-        reservados = {"Selecionar","Mover","Ligar","Derivar","Fio","Retângulo","Losango","Elipse","Linha","Seta","Lápis","Texto"}
+        reservados = {"Selecionar","Mover","Ligar","Derivar","Fio","Retângulo","Losango","Elipse","Linha","Seta","Lápis","Texto","Seta curva"}
         exigir(not set(d["componentes"]) & (reservados | set(d["categorias"])))
         for nome,tipos in d["categorias"].items():
             exigir(isinstance(nome,str) and nome and isinstance(tipos,list) and tipos)
@@ -97,9 +97,17 @@ def ler_pacote(path):
         links = d["conexoes"]
         exigir(1<=len(links["categorias"])<=12 and links["padrao"] in links["categorias"])
         exigir(all(isinstance(k,str) and k and cor(v) and v for k,v in links["categorias"].items()))
+        exigir(isinstance(links.get("categorias_ocultas",[]),list) and set(links.get("categorias_ocultas",[]))<=set(links["categorias"]))
+        exigir(links["padrao"] not in links.get("categorias_ocultas",[]))
         exigir(type(links["cores_compartilhadas"])==bool)
         exigir(isinstance(links["nomes_ocultos"],list) and set(links["nomes_ocultos"])<=set(links["categorias"]))
         exigir(isinstance(links.get("rotulo","Conexão"),str))
+        if "biblioteca" in d:
+            grupo = d["biblioteca"]
+            exigir(isinstance(grupo,dict) and set(grupo)=={"id","nome","ferramentas"})
+            exigir(isinstance(grupo["id"],str) and re.fullmatch(r"[a-z][a-z0-9_.-]+",grupo["id"]))
+            exigir(isinstance(grupo["nome"],str) and 0<len(grupo["nome"])<=48)
+            exigir(isinstance(grupo["ferramentas"],list) and all(t in ("Ligar","Derivar") for t in grupo["ferramentas"]))
         if "ia" in d:
             notas = d["ia"]
             exigir(isinstance(notas,dict) and set(notas)<={"descricao","restricoes","exemplos"})

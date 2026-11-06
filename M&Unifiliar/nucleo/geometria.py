@@ -1,4 +1,5 @@
 def transformar(item, dx, dy):
+    dx,dy = dx*item.get("escala",1),dy*item.get("escala",1)
     if item.get("espelho", False):
         dx = -dx
     for _ in range(item.get("rotacao", 0) // 90):

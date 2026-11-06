@@ -2,7 +2,7 @@
 
 ID `eletrica.unifilar`, versão 1, API 1, malha 10. Incluído na distribuição.
 
-Um único terminal representa a entrada de um circuito nas cargas unifilares. Disjuntores e dispositivos de passagem têm entrada e saída. O traço pode representar um conjunto de condutores; não equivale a cada condutor físico separadamente. As cores das ligações podem ser individuais.
+Um único terminal representa a entrada de um circuito nas cargas unifilares. Disjuntores e dispositivos de passagem têm entrada e saída. O traço pode representar um conjunto de condutores; não equivale a cada condutor físico separadamente. As cores são compartilhadas por categoria dentro desta biblioteca e folha.
 
 O manifesto define todas as portas e símbolos. Os índices das portas são persistidos nas ligações e devem permanecer estáveis. O barramento fica disponível apenas para abrir desenhos antigos, fora da biblioteca de inserção.
 

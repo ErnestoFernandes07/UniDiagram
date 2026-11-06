@@ -59,3 +59,15 @@ As guias verdes de alinhamento durante a edição de conexões têm outra finali
 Quando a janela principal é fechada com outros editores abertos, ela permanece oculta apenas para sustentar a sessão Tk até o último editor fechar. Cada editor verifica suas próprias alterações não salvas. Fechar uma janela não deve descartar silenciosamente outra.
 
 Esta entrega não adiciona MCP, servidor, porta de rede ou camada genérica de comandos de edição. A troca completa de documentos atende ao fluxo atual sem duplicar operações gráficas. Exportação PNG continua na camada de renderização do editor.
+
+## Agrupamento opcional de bibliotecas (API 1)
+
+O manifesto pode declarar `"biblioteca":{"id":"diagrama.eletrico","nome":"Diagrama elétrico","ferramentas":["Ligar","Derivar"]}`. Pacotes com o mesmo ID de grupo aparecem sob uma caixa de ativação conjunta; mantenha nome e ferramentas consistentes entre eles. O grupo não muda IDs, versões, geometria ou referências dos objetos. `ferramentas` aceita somente Ligar e Derivar (lista vazia oculta ambas). Sem o campo, o pacote continua independente e oferece as duas ferramentas de conexão quando habilitado. Nenhuma ferramenta de domínio é exibida na barra principal. A extensão é opcional e compatível com manifestos API 1 anteriores.
+
+## Canvas retido e fila de interação
+
+`canvas_retido.py` adapta as chamadas de desenho existentes para reutilizar IDs Tk por tag de objeto e índice de primitiva. Snapshots de estado evitam reconstruir grupos inalterados; zoom e troca de folha invalidam esses snapshots. Primitivas alteradas recebem coords/itemconfigure; removidas são excluídas. A ordem de empilhamento é reconciliada em mudanças estruturais. Bbox durante desenho só considera primitivas já emitidas no quadro atual, sem acumular alças antigas.
+
+A exportação continua usando um Canvas novo e a mesma cena, sem cache. Overlays transitórios e composição de transparência são recriados separadamente. O cache é apenas estado de execução; não altera JSON v4/API 1. O minimapa utiliza a mesma camada de retenção.
+
+Navegacao.agendar_movimento mantém um único evento pendente, executado em after_idle. Novo movimento substitui o anterior. Soltar o botão consome o último evento; trocar ferramenta cancela o pendente. Não reintroduza um redesenho síncrono para cada evento Motion/B1/B2/B3 nem delete("all") no canvas retido. Testes devem garantir estabilidade de IDs, ausência de alças crescentes, exclusão de objetos e posição final em rajadas de eventos.

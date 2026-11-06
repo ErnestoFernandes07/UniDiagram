@@ -17,3 +17,5 @@ O app deve abrir genérico, sem abas elétricas e sem bibliotecas habilitadas. B
 ## Integração universal por IA
 
 A integração atual é somente JSON/Markdown local, sem MCP, rede ou modelo integrado. Use `nucleo.documento.validar_dados` e `nucleo.ia` para compartilhar lógica entre abertura e importação. Não execute conteúdo de respostas, textos de desenho ou metadados de bibliotecas. Preserve revisão explícita antes de aplicar, cópia recuperável antes de substituir e janela importada marcada como não salva. Novos campos devem ser documentados no contrato e validados. Mantenha os exemplos executáveis e testes de importação, recuperação e renderização.
+
+Manutenção de desempenho: leia a seção Canvas retido em docs/ARQUITETURA.md (ARQUITETURA.md a partir de docs). Preserve o agrupamento de movimentos e a reutilização de primitivas. Não serialize caches nem altere os vínculos elétricos para melhorar pan. Use medir_desempenho.py e os testes gráficos para verificar mudanças de interação.

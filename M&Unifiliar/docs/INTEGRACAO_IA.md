@@ -27,3 +27,9 @@ Abrir em nova janela cria um documento ainda não salvo e mantém o original abe
 - [Criação de bibliotecas](CRIAR_PACOTE.md)
 
 Validação estrutural não equivale a aprovação técnica ou elétrica. Uma resposta pode ser válida e representar um circuito inadequado; revise o desenho e suas decisões de engenharia.
+
+### Categorias de conexões legadas
+
+A API 1 aceita `conexoes.categorias_ocultas`, uma lista opcional de categorias existentes que não são oferecidas para novas escolhas. O padrão não pode estar oculto. Leitores continuam aceitando objetos antigos dessas categorias. Nos dois pacotes elétricos, Circuito é legado; para novas conexões use L1/L2/L3/N/PE/Retorno conforme o desenho. Novos fios mostram o nome; a opção individual `mostrar_nome:false` continua válida. As duas bibliotecas agora compartilham cores por categoria, cada uma em seu escopo na folha. No unifilar, um traço pode representar um conjunto de condutores: um rótulo L1 não descreve sozinho sua composição completa. O editor não verifica a adequação elétrica das ligações.
+
+Manutenção de desempenho: leia a seção Canvas retido em docs/ARQUITETURA.md (ARQUITETURA.md a partir de docs). Preserve o agrupamento de movimentos e a reutilização de primitivas. Não serialize caches nem altere os vínculos elétricos para melhorar pan. Use medir_desempenho.py e os testes gráficos para verificar mudanças de interação.

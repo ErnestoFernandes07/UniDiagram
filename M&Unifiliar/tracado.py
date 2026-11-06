@@ -131,3 +131,28 @@ class Referencias:
             self.eixos[eixo] = ref
         self.pos = tuple(destino)
         return self.pos
+
+
+def alinhar_gesto_fio(pontos,tipo,indice,delta,zoom):
+    """Snap em eixos dos outros vértices, com tolerância constante na tela."""
+    dx,dy = delta
+    if tipo=="trecho":
+        a,b = pontos[indice:indice+2]
+        eixo = 1 if abs(b[0]-a[0])>=abs(b[1]-a[1]) else 0
+        origem = a
+        ignorados = {indice,indice+1}
+        eixos = [eixo]
+    else:
+        origem = pontos[indice+1]
+        ignorados = {indice+1}
+        eixos = [0,1]
+    resultado = [dx,dy]
+    guia = None
+    for eixo in eixos:
+        valor = origem[eixo]+resultado[eixo]
+        candidatos = [p[eixo] for i,p in enumerate(pontos) if i not in ignorados]
+        alvo = min(candidatos,key=lambda n:abs(n-valor),default=None)
+        if alvo is not None and abs(alvo-valor)*zoom<=9:
+            resultado[eixo] = alvo-origem[eixo]
+            guia = (eixo,alvo)
+    return tuple(resultado),guia

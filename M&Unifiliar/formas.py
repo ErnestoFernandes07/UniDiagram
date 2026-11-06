@@ -1,7 +1,8 @@
 from math import dist, sqrt
 from uuid import uuid4
+from tracado import automatico, limpar, trechos_curvos, projetar, mover_vertice
 
-FORMAS = ("Retângulo","Losango","Elipse","Linha","Seta","Lápis","Texto")
+FORMAS = ("Retângulo","Losango","Elipse","Linha","Seta","Seta curva","Lápis","Texto")
 CORES = ("#283b46","#008370","#5665c1","#af5739","#ad3550","#327cbb","#a27612","#8553a0")
 FONTES = ("Segoe UI","Arial","Georgia","Consolas","Times New Roman","Calibri")
 
@@ -45,9 +46,13 @@ def desenhar_forma(c,id_,forma,ativa=False):
     if tipo == "Texto":
         c.create_text(*pontos[0],text=forma["texto"],font=(forma.get("fonte","Segoe UI"),-forma.get("tamanho",18)),
                       angle=forma.get("angulo",0),fill=cor,tags=tags)
-    elif tipo in ("Linha","Seta","Lápis"):
-        c.create_line(*pontos,fill=cor,width=largura,capstyle="round",joinstyle="round",tags=tags)
-        if tipo == "Seta":
+    elif tipo in ("Linha","Seta","Seta curva","Lápis"):
+        if tipo=="Seta curva":
+            for trecho in trechos_curvos(pontos):
+                c.create_line(*trecho,fill=cor,width=largura,capstyle="round",joinstyle="round",tags=tags)
+        else:
+            c.create_line(*pontos,fill=cor,width=largura,capstyle="round",joinstyle="round",tags=tags)
+        if tipo in ("Seta","Seta curva"):
             a,b = pontos[-2:]
             dx,dy = b[0]-a[0],b[1]-a[1]
             tam = dist(a,b)
@@ -64,7 +69,7 @@ def desenhar_forma(c,id_,forma,ativa=False):
         caixa = c.bbox(tag)
         c.create_rectangle(*caixa,outline="#008370",dash=(3,3),tags=tag)
         if tipo != "Texto":
-            for indice,p in enumerate(projetar_alcas(pontos[0],pontos[-1],fator_alca(tipo))):
+            for indice,p in enumerate(pontos if tipo=="Seta curva" else projetar_alcas(pontos[0],pontos[-1],fator_alca(tipo))):
                 a,b = p
                 c.create_rectangle(a-3,b-3,a+3,b+3,fill="white",outline="#008370",tags=(tag,f"alca:{indice}"))
 
@@ -85,6 +90,47 @@ def alinhar_formas(folha,ponta):
 
 
 class Desenho:
+    def ramificar_forma(self,pos):
+        candidatos = []
+        for forma in self.folha.get("formas",{}).values():
+            if forma["tipo"] in ("Linha","Seta","Seta curva","Lápis"):
+                for a,b in zip(forma["pontos"],forma["pontos"][1:]):
+                    p = projetar(pos,a,b)
+                    candidatos.append((dist(pos,p),p))
+        if not candidatos:
+            return False
+        distancia,p = min(candidatos,key=lambda v:v[0])
+        if distancia*self.zoom>10:
+            return False
+        self.ferramenta("Seta curva")
+        self.curva_fixa = [list(p)]
+        self.continuar_curva(p)
+        return True
+
+    def continuar_curva(self,pos,shift=False):
+        if not self.curva_fixa:
+            return
+        pos = self.ajustar_grade_forma(pos,shift)
+        rota = limpar([*self.curva_fixa[:-1],*automatico(self.curva_fixa[-1],pos)])
+        if len(rota)<2:
+            rota = [rota[0],rota[0]]
+        self.curva_previa = dict(tipo="Seta curva",pontos=[list(p) for p in rota],cor=self.cor_forma.get())
+        self.render()
+
+    def clique_curva(self,pos,shift=False):
+        if not self.curva_fixa:
+            self.curva_fixa = [list(self.ajustar_grade_forma(pos,shift))]
+            self.continuar_curva(pos,shift)
+            return
+        self.continuar_curva(pos,shift)
+        if shift:
+            self.curva_fixa = self.curva_previa["pontos"]
+        elif any(dist(self.curva_previa["pontos"][0],p)>1 for p in self.curva_previa["pontos"]):
+            self.lembrar()
+            self.selecao = uuid4().hex
+            self.folha.setdefault("formas",{})[self.selecao] = self.curva_previa
+            self.ferramenta("Selecionar")
+
     def encaixe_forma(self,forma,indice,pos):
         candidatos = []
         for chave,item in self.folha["componentes"].items():
@@ -105,7 +151,11 @@ class Desenho:
     def atualizar_ancoras(self):
         alinhar_formas(self.folha,self.ponta)
 
-    def iniciar_forma(self,pos):
+    def ajustar_grade_forma(self,pos,shift=False):
+        return tuple(round(v/10)*10 for v in pos) if shift else pos
+
+    def iniciar_forma(self,pos,shift=False):
+        pos = self.ajustar_grade_forma(pos,shift)
         if self.modo=="Texto":
             self.iniciar_texto(pos)
             return
@@ -114,7 +164,8 @@ class Desenho:
         if self.modo not in ("Elipse","Losango"):
             self.forma_previa["pontos"][0] = self.encaixe_forma(self.forma_previa,0,pos)
 
-    def continuar_forma(self,pos):
+    def continuar_forma(self,pos,shift=False):
+        pos = self.ajustar_grade_forma(pos,shift)
         forma = self.forma_previa
         pos = self.encaixe_forma(forma,1,pos)
         if forma["tipo"] in ("Losango","Elipse"):
@@ -135,7 +186,7 @@ class Desenho:
         self.forma_previa = None
         self.ferramenta("Selecionar")
 
-    def editar_forma(self,pos):
+    def editar_forma(self,pos,shift=False):
         inicio,original,alca,iniciado = self.gesto_forma
         dx,dy = pos[0]-inicio[0],pos[1]-inicio[1]
         if not iniciado:
@@ -146,16 +197,23 @@ class Desenho:
         forma = self.folha["formas"][self.selecao]
         if alca is None:
             forma.pop("ancoras",None)
+            if shift:
+                destino = self.ajustar_grade_forma((original[0][0]+dx,original[0][1]+dy),True)
+                dx,dy = destino[0]-original[0][0],destino[1]-original[0][1]
             forma["pontos"] = [[x+dx,y+dy] for x,y in original]
+        elif forma["tipo"]=="Seta curva":
+            x,y = original[alca]
+            destino = self.ajustar_grade_forma((x+dx,y+dy),shift)
+            forma["pontos"] = [list(p) for p in mover_vertice(original,alca,destino)]
         elif forma["tipo"]!="Lápis":
             fator = fator_alca(forma["tipo"])
             alcas = projetar_alcas(original[0],original[-1],fator)
             x,y = alcas[alca]
-            alcas[alca] = self.encaixe_forma(forma,alca,(x+dx,y+dy))
+            alcas[alca] = self.encaixe_forma(forma,alca,self.ajustar_grade_forma((x+dx,y+dy),shift))
             forma["pontos"] = projetar_alcas(*alcas,1/fator)
         else:
             fixo,movel = (original[-1],original[0]) if alca==0 else (original[0],original[-1])
-            destino = self.encaixe_forma(forma,alca,(movel[0]+dx,movel[1]+dy))
+            destino = self.encaixe_forma(forma,alca,self.ajustar_grade_forma((movel[0]+dx,movel[1]+dy),shift))
             dx,dy = destino[0]-movel[0],destino[1]-movel[1]
             x,y = fixo
             u,v = movel

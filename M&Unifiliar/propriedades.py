@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from nucleo.geometria import transformar
 from formas import CORES, FONTES
 from paineis import Cartao, Faixa, Opacidade, TINTA
 
@@ -46,6 +47,13 @@ class Propriedades:
                                  lambda v:self.definir_propriedade("angulo",(self.objeto_inspecionado().get("angulo",0)+v)%360))
             controle.pack(fill="x")
             self.parametros[chave] = (linha,controle,leitura)
+        self.escala_componente = tk.Frame(corpo,bg="white")
+        tk.Label(self.escala_componente,text="Escala · malha preservada",bg="white",fg=TINTA).pack(anchor="w")
+        self.controle_escala = Faixa(self.escala_componente,[(n,f"{n}×") for n in (1,2,3,4)],lambda v:self.definir_propriedade("escala",v))
+        self.controle_escala.pack()
+        tk.Label(self.escala_componente,text="Tamanho do nome · próximos também",bg="white",fg=TINTA).pack(anchor="w",pady=(5,0))
+        self.controle_nome = Faixa(self.escala_componente,[(n,str(n)) for n in (10,12,16,20,24,32)],lambda v:self.definir_propriedade("tamanho_nome",v))
+        self.controle_nome.pack()
         rodape = tk.Frame(corpo,bg="white")
         self.exibir_nome = tk.BooleanVar()
         self.caixa_nome = tk.Checkbutton(corpo,text="Mostrar nome do fio",variable=self.exibir_nome,
@@ -92,6 +100,23 @@ class Propriedades:
         objeto = self.objeto_inspecionado()
         if objeto is None:
             return
+        if chave=="tamanho_nome":
+            self.tamanho_nome_padrao = valor
+        if chave=="escala" and self.selecao in self.folha["componentes"]:
+            if valor==objeto.get("escala",1):
+                return
+            self.lembrar()
+            rotas = self.caminhos_ligados(self.selecao)
+            definicao = self.pacote_para(objeto).componentes[objeto["tipo"]]
+            porta = definicao["terminais"][definicao.get("apoio",0)]
+            antes = transformar(objeto,*porta)
+            objeto["escala"] = valor
+            depois = transformar(objeto,*porta)
+            objeto["x"] += antes[0]-depois[0]
+            objeto["y"] += antes[1]-depois[1]
+            self.acompanhar_pontas(rotas)
+            self.render()
+            return
         if chave=="cor" and "condutor" in objeto and self.pacote_para(objeto).conexoes["cores_compartilhadas"]:
             categoria = objeto["condutor"]
             if self.cor_do_condutor(categoria,obj=objeto)!=valor:
@@ -122,6 +147,12 @@ class Propriedades:
             return False
         tipo = obj.get("tipo","Fio")
         componente = self.selecao in self.folha["componentes"] and self.texto_rascunho is None
+        if componente:
+            self.escala_componente.pack(before=self.rodape_propriedades,pady=5)
+            self.controle_escala.set(obj.get("escala",1))
+            self.controle_nome.set(obj.get("tamanho_nome",12))
+        else:
+            self.escala_componente.pack_forget()
         texto = tipo=="Texto"
         self.titulo_inspector.set(tipo if tipo!="Fio" else f"Fio · {obj['condutor']}")
         cor = self.cor_do_condutor(obj["condutor"],obj.get("cor"),obj) if tipo=="Fio" else obj.get("cor",CORES[0])

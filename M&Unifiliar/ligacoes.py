@@ -22,6 +22,35 @@ class Ligacoes:
             return self.folha.get("cores_bibliotecas",{}).get(pacote.id,{}).get(categoria,pacote.conexoes["categorias"][categoria])
         return local or pacote.conexoes["categorias"][categoria]
 
+    def terminal_proximo(self,pos):
+        candidatos = [(dist(pos,self.ponta([id_,i])),[id_,i])
+            for id_,item in self.folha["componentes"].items()
+            for i in range(len(self.pacote_para(item).terminais(item["tipo"])))]
+        distancia,ref = min(candidatos,default=(float("inf"),None),key=lambda p:p[0])
+        return ref if distancia*self.zoom<=10 else None
+
+    def conectar_no_arrastado(self):
+        no = self.selecao
+        if no not in self.folha.get("nos",{}):
+            return
+        ref = self.terminal_proximo(self.folha["nos"][no])
+        if ref is None:
+            return
+        rotas = self.caminhos_ligados(no)
+        for fio in self.folha["ligacoes"].values():
+            for lado in ("a","b"):
+                if fio[lado]==[no,0]:
+                    fio[lado] = list(ref)
+        for forma in self.folha.get("formas",{}).values():
+            for chave,ancora in forma.get("ancoras",{}).items():
+                if ancora==[no,0]:
+                    forma["ancoras"][chave] = list(ref)
+        del self.folha["nos"][no]
+        self.acompanhar_pontas(rotas)
+        self.selecao = ref[0]
+        self.status.set("Fio conectado ao terminal do componente.")
+        self.render()
+
     def mover_etiqueta(self,pos):
         x,y,dx,dy,iniciado = self.arrasto_etiqueta
         if not iniciado:
@@ -185,7 +214,7 @@ class Ligacoes:
             pontos = self.rota_rascunho(alvo)
             self.lembrar()
             a,b = self.materializar(self.inicio),self.materializar(alvo)
-            fio = dict(a=a,b=b,condutor=self.condutor.get(),pacote=referencia(self.pacote),**self.estilo_inicio)
+            fio = dict(a=a,b=b,condutor=self.condutor.get(),pacote=referencia(self.pacote),mostrar_nome=self.condutor.get() not in self.pacote.conexoes["nomes_ocultos"],**self.estilo_inicio)
             if self.guias:
                 fio["pontos"] = [list(p) for p in pontos[1:-1]]
             self.folha["ligacoes"][uuid4().hex] = fio
@@ -195,6 +224,9 @@ class Ligacoes:
         self.render()
 
     def movimento_livre(self,e):
+        if self.modo=="Seta curva" and self.curva_fixa:
+            self.continuar_curva((self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom),bool(e.state&1))
+            return
         if self.modo in self.pacote.componentes:
             self.atualizar_insercao(e)
             return

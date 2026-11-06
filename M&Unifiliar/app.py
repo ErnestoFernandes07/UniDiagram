@@ -10,9 +10,9 @@ from nucleo.documento import carregar, novo, salvar, ponta_do_projeto
 from nucleo.pacotes import pacote_da_folha, pacote_do_objeto, obter, referencia
 from insercao import Insercao
 from integracao_ia import IntegracaoIA
-from nucleo.simbolos import desenhar
+from nucleo.simbolos import desenhar, posicao_nome
 from ligacoes import Ligacoes
-from tracado import automatico, deslocar_trecho, mover_vertice, trechos_curvos
+from tracado import limpar, alinhar_gesto_fio, automatico, deslocar_trecho, mover_vertice, trechos_curvos
 
 
 from interface import Interface
@@ -34,9 +34,14 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
         self.gravado = copy.deepcopy(self.dados)
         self.historico = []
         self.futuros = []
+        self.curva_fixa = []
+        self.curva_previa = None
         self.modo = "Selecionar"
         self.zoom = 1.0
         self.arrasto_fio = None
+        self.tamanho_nome_padrao = 12
+        self.arrasto_nome = None
+        self.guia_fio = None
         self.arrasto_etiqueta = None
         self.referencias = None
         self.selecao = self.origem = self.arrasto = None
@@ -60,8 +65,8 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
         self.montar_propriedades()
         self.c.bind("<Configure>",lambda e:self.render())
         self.c.bind("<Button-1>",self.clique)
-        self.c.bind("<B1-Motion>",self.mover)
-        self.c.bind("<Motion>",self.movimento_livre)
+        self.c.bind("<B1-Motion>",lambda e:self.agendar_movimento(self.mover,e))
+        self.c.bind("<Motion>",lambda e:self.agendar_movimento(self.movimento_livre,e))
         self.c.bind("<Leave>",self.sair_insercao)
         for tecla in ("Shift_L","Shift_R"):
             root.bind("<KeyPress-"+tecla+">",lambda e:self.alternar_snap(True))
@@ -70,10 +75,11 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
         self.c.bind("<MouseWheel>",lambda e:self.aplicar_zoom(self.zoom * (1.2 if e.delta>0 else 1/1.2), e.x, e.y))
         self.c.bind("<Double-Button-1>",self.duplo_clique)
         self.c.bind("<ButtonPress-2>",lambda e:self.c.scan_mark(e.x,e.y))
-        self.c.bind("<B2-Motion>",self.arrastar_tela)
+        self.c.bind("<B2-Motion>",lambda e:self.agendar_movimento(self.arrastar_tela,e))
+        self.c.bind("<ButtonRelease-2>",self.terminar_pan)
         self.c.bind("<ButtonPress-3>",self.iniciar_pan_direito)
-        self.c.bind("<B3-Motion>",self.arrastar_tela)
-        self.c.bind("<ButtonRelease-3>",lambda e:self.c.configure(cursor=self.cursor_ferramenta()))
+        self.c.bind("<B3-Motion>",lambda e:self.agendar_movimento(self.arrastar_tela,e))
+        self.c.bind("<ButtonRelease-3>",self.terminar_pan)
         for tecla,cmd in [("<Control-s>",self.salvar),("<Control-o>",self.abrir),
                           ("<Control-z>",self.desfazer),("<Control-y>",self.refazer),
                           ("r",lambda:self.transformacao("rotacao")),("e",lambda:self.transformacao("espelho")),
@@ -172,6 +178,12 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             self.c.focus_set()
 
     def ferramenta(self, modo):
+        self.cancelar_movimento()
+        if modo in ("Ligar","Derivar") and modo not in self.ferramentas_bibliotecas():
+            self.status.set("Habilite uma biblioteca com ferramentas de conexão para usar fios.")
+            return
+        self.curva_fixa = []
+        self.curva_previa = None
         self.concluir_digitacao()
         self.ima = None
         self.grupo.clear()
@@ -190,6 +202,7 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                       "Ligar":"Clique em um terminal ou fio para começar.",
                       "Derivar":"Clique em um fio para iniciar uma derivação."}
         instrucoes.update({tipo:"Clique e arraste para desenhar." for tipo in FORMAS})
+        instrucoes["Seta curva"] = "Clique para iniciar; Shift + clique fixa dobras; clique conclui; Esc cancela."
         instrucoes.update(Texto="Clique na folha para adicionar texto.",Mover="Arraste para navegar pelo desenho.")
         self.status.set(instrucoes.get(modo,f"{modo}   ·   Terminal no cursor · Shift encaixa na malha · R gira · E espelha · Esc cancela."))
         self.render()
@@ -246,6 +259,7 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                 destino = self.ponta(fio[lado])
                 if tuple(pontos[indice]) != destino:
                     pontos = mover_vertice(pontos,indice,destino)
+            pontos = limpar(pontos)
             fio["pontos"] = [list(p) for p in pontos[1:-1]]
         self.atualizar_ancoras()
 
@@ -266,15 +280,21 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
         return pontos if len(pontos)>1 else [a,b]
 
     def cena(self,c,edicao):
+        reusar=getattr(c,"reutilizar",lambda *args:False)
         for id_,forma in self.folha.get("formas",{}).items():
             if not (edicao and self.texto_rascunho is not None and id_==self.selecao):
-                desenhar_forma(c,id_,forma,edicao and self.selecao==id_)
+                if not reusar("forma:"+id_,(forma,edicao and self.selecao==id_)):
+                    desenhar_forma(c,id_,forma,edicao and self.selecao==id_)
+        if edicao and self.curva_previa:
+            desenhar_forma(c,"curva_previa",self.curva_previa)
         if edicao and self.forma_previa:
             desenhar_forma(c,"previa",self.forma_previa)
         for id_,fio in self.folha["ligacoes"].items():
             pontos = self.caminho(fio)
             ativo = edicao and self.selecao==id_
             cor = self.cor_do_condutor(fio["condutor"],fio.get("cor"),fio)
+            if reusar("fio:"+id_,(fio,pontos,ativo,cor)):
+                continue
             alpha = f"alpha:{fio.get('opacidade',100)}"
             for i,trecho in enumerate(trechos_curvos(pontos)):
                 c.create_line(*trecho,fill=cor,width=fio.get("espessura",2),dash=(8,5) if fio.get("tracejado") else (),tags=("fio:"+id_,f"trecho:{i}",alpha))
@@ -296,16 +316,29 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                 contagem[ref[0]] = contagem.get(ref[0],0)+1
         for id_,(x,y) in self.folha.get("nos",{}).items():
             cor = "#00786a" if edicao and self.selecao==id_ else "#263949"
+            if reusar("no:"+id_,(x,y,cor,contagem.get(id_,0)>1)):
+                continue
             c.create_oval(x-4,y-4,x+4,y+4,outline=cor,
                           fill=cor if contagem.get(id_,0)>1 else "white",tags="no:"+id_)
         for id_,item in self.folha["componentes"].items():
-            desenhar(c,id_,item,self.pacote_para(item),edicao and (self.selecao==id_ or id_ in self.grupo),self.origem if edicao else None)
+            if not reusar("item:"+id_,(item,edicao and (self.selecao==id_ or id_ in self.grupo),self.origem if edicao else None)):
+                desenhar(c,id_,item,self.pacote_para(item),edicao and (self.selecao==id_ or id_ in self.grupo),self.origem if edicao else None)
         if edicao and self.texto_rascunho is not None:
             self.desenhar_digitacao(c)
 
     def render(self):
         c = self.c
-        c.delete("all")
+        from canvas_retido import CanvasRetido
+        if not hasattr(self,"canvas_retido"):
+            self.canvas_retido=CanvasRetido(c)
+        for obj in getattr(self,"sobreposicoes",()):
+            c.delete(obj)
+        retido=self.canvas_retido
+        if getattr(retido,"folha",None) is not self.folha:
+            retido.estados.clear()
+            retido.folha=self.folha
+        retido.iniciar(self.zoom)
+        c=retido
         x,y,u,v = self.vista()
         grade = self.dados.get("grade",{})
         estilo = grade.get("tipo","linhas")
@@ -314,23 +347,17 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             passo *= 2
         if estilo=="linhas":
             for i in range(int(x//passo)*passo,int(u)+passo,passo):
-                c.create_line(i,y,i,v,fill="#e9eeea")
+                c.create_line(i,y,i,v,fill="#e9eeea",tags="grade")
             for i in range(int(y//passo)*passo,int(v)+passo,passo):
-                c.create_line(x,i,u,i,fill="#e9eeea")
+                c.create_line(x,i,u,i,fill="#e9eeea",tags="grade")
         elif estilo=="pontos":
             r = 1/self.zoom
             for i in range(int(x//passo)*passo,int(u)+passo,passo):
                 for j in range(int(y//passo)*passo,int(v)+passo,passo):
-                    c.create_oval(i-r,j-r,i+r,j+r,fill="#cbd8d0",outline="")
+                    c.create_oval(i-r,j-r,i+r,j+r,fill="#cbd8d0",outline="",tags="grade")
         self.cena(c,True)
-        if self.zoom != 1:
-            c.scale("all",0,0,self.zoom,self.zoom)
-            for obj in c.find_all():
-                if c.type(obj) == "text":
-                    familia,tamanho,*estilo = c.tk.splitlist(c.itemcget(obj,"font"))
-                    c.itemconfigure(obj,font=(familia,round(int(tamanho)*self.zoom),*estilo))
-                elif c.gettags(obj):
-                    c.itemconfigure(obj,width=max(1,float(c.itemcget(obj,"width"))*self.zoom))
+        retido.finalizar()
+        c=self.c
         objetos = [*self.folha.get("formas",{}).values(),*self.folha["ligacoes"].values()]
         if self.texto_rascunho is not None:
             objetos.append(self.texto_rascunho)
@@ -343,11 +370,18 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
         self.previa_componente()
         self.previa()
         self.mostrar_referencias()
+        if self.guia_fio:
+            eixo,valor = self.guia_fio
+            coords = (x,valor,u,valor) if eixo==1 else (valor,y,valor,v)
+            c.create_line(*[n*self.zoom for n in coords],fill="#4a9d70",dash=(4,5),tags="guia_fio")
         self.pintar_selecao()
         self.atualizar_interface()
+        ids=set(retido.ordem)
+        self.sobreposicoes=[obj for obj in c.find_all() if obj not in ids]
         self.root.title(f"{'* ' if self.dados != self.gravado else ''}{self.path.name if self.path else 'Sem título'} — M&Unifiliar")
 
     def clique(self,e):
+        self.processar_movimento()
         self.c.focus_set()
         x,y = self.c.canvasx(e.x),self.c.canvasy(e.y)
         objetos = [self.c.gettags(obj) for obj in reversed(self.c.find_overlapping(x-4,y-4,x+4,y+4))]
@@ -358,12 +392,17 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                 self.posicionar_cursor((x,y))
                 return
             self.concluir_digitacao()
+        if self.modo=="Selecionar" and e.state&4 and self.ramificar_forma((x,y)):
+            return
+        if self.modo=="Seta curva":
+            self.clique_curva((x,y),bool(e.state&1))
+            return
         if self.modo=="Mover":
             self.pan = True
             self.c.scan_mark(e.x,e.y)
             return
         if self.modo in FORMAS:
-            self.iniciar_forma((x,y))
+            self.iniciar_forma((x,y),bool(e.state&1))
             self.render()
             return
         if self.modo in ("Ligar","Derivar"):
@@ -380,6 +419,11 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                         break
             id_ = alvo.split(":")[1] if alvo else None
             mod = getattr(e,"state",0)&5
+            if id_ in self.folha["componentes"] and "nome_componente" in tags and not mod and id_==self.selecao and len(self.grupo)<=1:
+                item = self.folha["componentes"][id_]
+                nx,ny = posicao_nome(item,self.pacote_para(item))
+                self.arrasto_nome = (x,y,nx-item["x"],ny-item["y"],False)
+                return
             if id_ in self.folha["componentes"]:
                 self.escolher_componente(id_,mod,(x,y))
                 self.render()
@@ -393,7 +437,7 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             if self.selecao in self.folha.get("formas",{}):
                 alca = next((t for t in tags if t.startswith("alca:")),None)
                 forma = self.folha["formas"][self.selecao]
-                self.gesto_forma = ((x,y),copy.deepcopy(forma["pontos"]),int(alca[-1]) if alca else None,False)
+                self.gesto_forma = ((x,y),copy.deepcopy(forma["pontos"]),int(alca.split(":")[1]) if alca else None,False)
                 self.cor_forma.set(forma["cor"])
                 self.status.set("Arraste para mover. Use as alças para ajustar o tamanho. Delete exclui.")
             elif self.selecao in self.folha.get("nos",{}):
@@ -428,8 +472,23 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             self.cursor_insercao = None
         self.render()
 
+    def mover_nome_componente(self,pos):
+        x,y,dx,dy,iniciado = self.arrasto_nome
+        if not iniciado:
+            if dist((x,y),pos)*self.zoom<3:
+                return
+            self.lembrar()
+            self.arrasto_nome = (x,y,dx,dy,True)
+        self.folha["componentes"][self.selecao]["posicao_nome"] = [dx+pos[0]-x,dy+pos[1]-y]
+        self.render()
+
     def soltar(self,e=None):
+        if e is not None:
+            self.processar_movimento()
         pos = (self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom) if e is not None else None
+        if self.arrasto_nome and pos:
+            self.mover_nome_componente(pos)
+        self.arrasto_nome = None
         if self.arrasto_etiqueta and pos and self.arrasto_etiqueta[-1]:
             self.mover_etiqueta(pos)
         self.arrasto_etiqueta = None
@@ -447,7 +506,7 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             self.inicio_grupo = None
         if e is not None and self.forma_previa:
             pos = (self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom)
-            self.continuar_forma(pos)
+            self.continuar_forma(pos,bool(e.state&1))
             pts = self.forma_previa["pontos"]
             if any(dist(pts[0],p)*self.zoom>=2 for p in pts[1:]):
                 self.confirmar_forma()
@@ -455,14 +514,18 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                 self.forma_previa = None
                 self.render()
         if self.gesto_forma and e is not None and self.gesto_forma[-1]:
-            self.editar_forma((self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom))
+            self.editar_forma((self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom),bool(e.state&1))
         self.gesto_forma = None
         self.ima = None
         self.c.delete("ima")
         if e is not None and ((self.arrasto and self.arrasto[-1]) or
                               (self.arrasto_fio and self.arrasto_fio[-1])):
             self.mover(e)
+        if e is not None and self.arrasto and self.arrasto[-1]:
+            self.conectar_no_arrastado()
         self.arrasto = self.arrasto_fio = None
+        self.guia_fio = None
+        self.c.delete("guia_fio")
         self.rotas_arrasto = {}
         if not self.inicio:
             self.referencias = None
@@ -486,6 +549,12 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
 
     def mover(self,e):
         px,py = self.c.canvasx(e.x)/self.zoom,self.c.canvasy(e.y)/self.zoom
+        if self.modo=="Seta curva" and self.curva_fixa:
+            self.continuar_curva((px,py),bool(e.state&1))
+            return
+        if self.arrasto_nome:
+            self.mover_nome_componente((px,py))
+            return
         if self.arrasto_etiqueta:
             self.mover_etiqueta((px,py))
             return
@@ -496,11 +565,11 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
             self.deslocar_grupo((px,py))
             return
         if self.forma_previa:
-            self.continuar_forma((px,py))
+            self.continuar_forma((px,py),bool(e.state&1))
             self.render()
             return
         if self.gesto_forma:
-            self.editar_forma((px,py))
+            self.editar_forma((px,py),bool(e.state&1))
             return
         if self.inicio:
             self.movimento_livre(e)
@@ -516,13 +585,15 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                     return
                 self.lembrar()
                 self.arrasto_fio = (tipo,indice,x,y,original,True)
+            destino, self.guia_fio = alinhar_gesto_fio(original,tipo,indice,(px-x,py-y),self.zoom) if e.state&1 else ((px-x,py-y),None)
             if tipo=="trecho":
-                pontos = deslocar_trecho(original,indice,px-x,py-y)
+                pontos = deslocar_trecho(original,indice,*destino)
             else:
                 antigo = original[indice+1]
-                pos = (antigo[0]+px-x,antigo[1]+py-y)
+                pos = (antigo[0]+destino[0],antigo[1]+destino[1])
                 pos = self.encaixar(pos)
                 pontos = mover_vertice(original,indice+1,pos)
+            pontos = limpar(pontos)
             fio["pontos"] = [list(p) for p in pontos[1:-1]]
             self.render()
             return
@@ -535,7 +606,9 @@ class Editor(Interface, Navegacao, Desenho, Ligacoes, TextoNaFolha, Propriedades
                 y = round((py-dy)/10)*10
             else:
                 pos = (px-dx,py-dy)
-                x,y = self.encaixar(pos)
+                ref = self.terminal_proximo(pos)
+                x,y = self.ponta(ref) if ref else self.encaixar(pos)
+                self.ima = (x,y) if ref else None
             if (x,y) != anterior:
                 if not iniciado:
                     self.lembrar()

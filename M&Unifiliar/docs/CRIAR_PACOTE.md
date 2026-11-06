@@ -93,3 +93,11 @@ O manifesto API 1 pode incluir o campo opcional `ia`, compatível com os pacotes
 `descricao` tem até 4.000 caracteres. `restricoes` e `exemplos` são listas de até 20 textos, cada um com até 2.000 caracteres. O validador verifica esses campos. São notas de domínio, não permissões para executar código, ler arquivos ou alterar o computador.
 
 O contexto identifica as notas como dados não confiáveis. Não há leitura automática de scripts, arquivos privados, URLs ou outros arquivos referenciados pelo manifesto. Para o projeto atual, entram bibliotecas habilitadas e dependências dos objetos existentes; para um projeto novo, apenas as habilitadas, além das definições genéricas internas.
+
+## Agrupamento opcional de bibliotecas (API 1)
+
+O manifesto pode declarar `"biblioteca":{"id":"diagrama.eletrico","nome":"Diagrama elétrico","ferramentas":["Ligar","Derivar"]}`. Pacotes com o mesmo ID de grupo aparecem sob uma caixa de ativação conjunta; mantenha nome e ferramentas consistentes entre eles. O grupo não muda IDs, versões, geometria ou referências dos objetos. `ferramentas` aceita somente Ligar e Derivar (lista vazia oculta ambas). Sem o campo, o pacote continua independente e oferece as duas ferramentas de conexão quando habilitado. Nenhuma ferramenta de domínio é exibida na barra principal. A extensão é opcional e compatível com manifestos API 1 anteriores.
+
+### Categorias de conexões legadas
+
+A API 1 aceita `conexoes.categorias_ocultas`, uma lista opcional de categorias existentes que não são oferecidas para novas escolhas. O padrão não pode estar oculto. Leitores continuam aceitando objetos antigos dessas categorias. Nos dois pacotes elétricos, Circuito é legado; para novas conexões use L1/L2/L3/N/PE/Retorno conforme o desenho. Novos fios mostram o nome; a opção individual `mostrar_nome:false` continua válida. As duas bibliotecas agora compartilham cores por categoria, cada uma em seu escopo na folha. No unifilar, um traço pode representar um conjunto de condutores: um rótulo L1 não descreve sozinho sua composição completa. O editor não verifica a adequação elétrica das ligações.
